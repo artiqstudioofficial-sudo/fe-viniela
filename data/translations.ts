@@ -757,7 +757,9 @@ const translations = {
         aboutTitle: 'Solusi Hukum Komprehensif untuk Kebutuhan Personal & Bisnis',
         aboutContent:
           'Viniela Pengacara menyediakan layanan hukum ahli untuk menavigasi kompleksitas hukum perdata dan bisnis. Tim pengacara kami yang berpengalaman berdedikasi untuk melindungi kepentingan Anda, memberikan nasihat strategis, dan memperjuangkan hasil terbaik dalam setiap kasus, baik di dalam maupun di luar pengadilan.',
-        services: [
+        heroButtonText: "Kunjungi Website Resmi",
+        heroButtonUrl: "https://trustedlawyer.viniela.id/",
+          services: [
           {
             icon: 'fa-solid fa-briefcase',
             title: 'Hukum Umum & Bisnis',
@@ -2341,7 +2343,9 @@ const translations = {
         aboutTitle: 'Comprehensive Legal Solutions for Personal & Business Needs',
         aboutContent:
           'Viniela Lawyer provides expert legal services to navigate the complexities of civil and business law. Our experienced team of attorneys is dedicated to protecting your interests, providing strategic advice, and fighting for the best outcomes in every case, both in and out of court.',
-        services: [
+        heroButtonText: "Visit Official Website",
+        heroButtonUrl: "https://trustedlawyer.viniela.id/",
+          services: [
           {
             icon: 'fa-solid fa-briefcase',
             title: 'General & Business Law',
@@ -3834,7 +3838,9 @@ const translations = {
         aboutTitle: '为个人与企业提供全面的法律解决方案',
         aboutContent:
           'Viniela律师事务所提供专业的法律服务，以应对复杂的民法和商法。我们经验丰富的律师团队致力于保护您的利益，提供战略性建议，并在法庭内外为每个案件争取最佳结果。',
-        services: [
+        heroButtonText: "访问官方网站",
+        heroButtonUrl: "https://trustedlawyer.viniela.id/",
+          services: [
           {
             icon: 'fa-solid fa-briefcase',
             title: '普通与商业法',
