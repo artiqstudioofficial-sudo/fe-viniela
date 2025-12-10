@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 
 interface ImageUploaderProps {
   value: string;
   onChange: (url: string) => void;
 }
 
-const API_BASE = 'http://localhost:4000';
+const API_BASE = "https://api.viniela.id";
 
 const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
   const [isUploading, setIsUploading] = useState(false);
@@ -19,25 +19,26 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (!file.type.startsWith('image/')) {
-      alert('File harus berupa gambar');
+    if (!file.type.startsWith("image/")) {
+      alert("File harus berupa gambar");
       return;
     }
 
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("file", file);
 
     try {
       setIsUploading(true);
 
       const res = await fetch(`${API_BASE}/api/team/upload-image`, {
-        method: 'POST',
+        method: "POST",
         body: formData,
       });
 
       if (!res.ok) {
         const errJson = await res.json().catch(() => null);
-        const msg = errJson?.error || `Gagal upload gambar (status ${res.status})`;
+        const msg =
+          errJson?.error || `Gagal upload gambar (status ${res.status})`;
         throw new Error(msg);
       }
 
@@ -50,11 +51,11 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
         onChange(`${API_BASE}${data.path}`);
       }
     } catch (err) {
-      console.error('Upload gambar gagal:', err);
-      alert(err instanceof Error ? err.message : 'Gagal upload gambar');
+      console.error("Upload gambar gagal:", err);
+      alert(err instanceof Error ? err.message : "Gagal upload gambar");
     } finally {
       setIsUploading(false);
-      e.target.value = '';
+      e.target.value = "";
     }
   };
 
@@ -74,7 +75,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
         disabled={isUploading}
         className="btn-secondary text-sm"
       >
-        {isUploading ? 'Mengunggah...' : value ? 'Ganti Foto' : 'Unggah Foto'}
+        {isUploading ? "Mengunggah..." : value ? "Ganti Foto" : "Unggah Foto"}
       </button>
 
       <input

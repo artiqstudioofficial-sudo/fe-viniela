@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import CTA from '../components/CTA';
-import NewsCard from '../components/NewsCard';
-import { divisions } from '../constants';
-import { useTranslations } from '../contexts/i18n';
-import useOnScreen from '../hooks/useOnScreen';
-import { listNews } from '../services/newsService';
-import * as partnerService from '../services/partnerService';
-import { Division, NewsArticle, Partner } from '../types';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import CTA from "../components/CTA";
+import NewsCard from "../components/NewsCard";
+import { divisions } from "../constants";
+import { useTranslations } from "../contexts/i18n";
+import useOnScreen from "../hooks/useOnScreen";
+import { listNews } from "../services/newsService";
+import * as partnerService from "../services/partnerService";
+import { Division, NewsArticle, Partner } from "../types";
 
 const HomePage: React.FC = () => {
   const { t, language } = useTranslations();
@@ -21,12 +21,18 @@ const HomePage: React.FC = () => {
         const res = await listNews(1, 3);
         setLatestNews(res.data);
       } catch (err) {
-        console.error('Failed to load news:', err);
+        console.error("Failed to load news:", err);
         setLatestNews([]);
       }
 
-      // Partner masih pakai local service
-      setPartners(partnerService.getPartners());
+      // Ambil partners dari backend via partnerService
+      try {
+        const partnersData = await partnerService.getPartners();
+        setPartners(partnersData);
+      } catch (err) {
+        console.error("Failed to load partners:", err);
+        setPartners([]);
+      }
     };
 
     load();
@@ -40,11 +46,11 @@ const HomePage: React.FC = () => {
 
   // Helper to get nested translation
   const getTranslation = (key: string) => {
-    const keys = key.split('.');
+    const keys = key.split(".");
     let result: any = t;
     for (const k of keys) {
       result = result?.[k];
-      if (typeof result === 'undefined') return key;
+      if (typeof result === "undefined") return key;
     }
     return result;
   };
@@ -58,7 +64,9 @@ const HomePage: React.FC = () => {
       <div className="bg-viniela-gold text-white p-4 rounded-full mb-4 transition-all duration-300 group-hover:scale-110">
         <division.Icon className="w-8 h-8" />
       </div>
-      <h3 className="font-semibold text-viniela-dark">{getTranslation(division.name)}</h3>
+      <h3 className="font-semibold text-viniela-dark">
+        {getTranslation(division.name)}
+      </h3>
       <p className="text-sm text-viniela-gray mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-300">
         {getTranslation(division.description)}
       </p>
@@ -72,7 +80,8 @@ const HomePage: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://picsum.photos/seed/modern-glass-building/1920/1080')",
+            backgroundImage:
+              "url('https://picsum.photos/seed/modern-glass-building/1920/1080')",
           }}
         ></div>
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
@@ -82,14 +91,14 @@ const HomePage: React.FC = () => {
           </h1>
           <p
             className="text-lg md:text-xl max-w-3xl mx-auto animate-fade-in-up"
-            style={{ animationDelay: '0.3s' }}
+            style={{ animationDelay: "0.3s" }}
           >
             {t.home.heroSubtitle}
           </p>
           <a
             href="#divisions"
             className="mt-8 inline-block px-8 py-3 bg-viniela-gold font-semibold rounded-lg shadow-md hover:bg-viniela-gold-dark transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
-            style={{ animationDelay: '0.6s' }}
+            style={{ animationDelay: "0.6s" }}
           >
             {t.home.heroButton}
           </a>
@@ -100,7 +109,9 @@ const HomePage: React.FC = () => {
       <section
         ref={aboutRef}
         className={`py-20 bg-white transition-all duration-700 ease-out ${
-          isAboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isAboutVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -115,7 +126,7 @@ const HomePage: React.FC = () => {
             </div>
             <div
               className="relative w-full overflow-hidden rounded-xl shadow-lg"
-              style={{ paddingTop: '56.25%' }}
+              style={{ paddingTop: "56.25%" }}
             >
               {/* 16:9 Aspect Ratio */}
               <iframe
@@ -136,7 +147,9 @@ const HomePage: React.FC = () => {
         ref={divisionsRef}
         id="divisions"
         className={`py-20 bg-viniela-silver transition-all duration-700 ease-out ${
-          isDivisionsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isDivisionsVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -153,7 +166,9 @@ const HomePage: React.FC = () => {
       <section
         ref={partnersRef}
         className={`py-16 bg-white transition-all duration-700 ease-out ${
-          isPartnersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isPartnersVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -186,7 +201,9 @@ const HomePage: React.FC = () => {
         ref={newsRef}
         id="news"
         className={`py-20 bg-viniela-silver transition-all duration-700 ease-out ${
-          isNewsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isNewsVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -195,7 +212,11 @@ const HomePage: React.FC = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {latestNews.map((article) => (
-              <Link key={article.id} to={`/news/${article.id}`} className="block">
+              <Link
+                key={article.id}
+                to={`/news/${article.id}`}
+                className="block"
+              >
                 <NewsCard
                   article={article}
                   lang={language}

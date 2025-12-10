@@ -1,9 +1,9 @@
-import { TeamMember } from '../types';
+import { TeamMember } from "../types";
 
-const API_BASE = 'http://localhost:4000';
+const API_BASE = "https://api.viniela.id";
 const TEAM_ENDPOINT = `${API_BASE}/api/team`;
 
-export type TeamFormPayload = Omit<TeamMember, 'id'>;
+export type TeamFormPayload = Omit<TeamMember, "id">;
 
 interface ListResponse {
   data: TeamMember[];
@@ -32,9 +32,9 @@ async function handleResponse<T>(res: Response): Promise<T> {
  */
 export const getTeamMembers = async (): Promise<TeamMember[]> => {
   const res = await fetch(TEAM_ENDPOINT, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      Accept: 'application/json',
+      Accept: "application/json",
     },
   });
 
@@ -45,29 +45,31 @@ export const getTeamMembers = async (): Promise<TeamMember[]> => {
 /**
  * Tambah anggota team baru
  */
-export const addTeamMember = async (member: TeamFormPayload): Promise<TeamMember> => {
+export const addTeamMember = async (
+  member: TeamFormPayload
+): Promise<TeamMember> => {
   // Backend hanya butuh title.id & bio.id, tapi aman kalau kita kirim en/cn juga
   const payload = {
     name: member.name,
     title: {
       id: member.title.id,
-      en: member.title.en ?? '',
-      cn: member.title.cn ?? '',
+      en: member.title.en ?? "",
+      cn: member.title.cn ?? "",
     },
     bio: {
       id: member.bio.id,
-      en: member.bio.en ?? '',
-      cn: member.bio.cn ?? '',
+      en: member.bio.en ?? "",
+      cn: member.bio.cn ?? "",
     },
     imageUrl: member.imageUrl,
-    linkedinUrl: member.linkedinUrl || '',
+    linkedinUrl: member.linkedinUrl || "",
   };
 
   const res = await fetch(TEAM_ENDPOINT, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify(payload),
   });
@@ -79,28 +81,30 @@ export const addTeamMember = async (member: TeamFormPayload): Promise<TeamMember
 /**
  * Update anggota team
  */
-export const updateTeamMember = async (updatedMember: TeamMember): Promise<TeamMember> => {
+export const updateTeamMember = async (
+  updatedMember: TeamMember
+): Promise<TeamMember> => {
   const payload = {
     name: updatedMember.name,
     title: {
       id: updatedMember.title.id,
-      en: updatedMember.title.en ?? '',
-      cn: updatedMember.title.cn ?? '',
+      en: updatedMember.title.en ?? "",
+      cn: updatedMember.title.cn ?? "",
     },
     bio: {
       id: updatedMember.bio.id,
-      en: updatedMember.bio.en ?? '',
-      cn: updatedMember.bio.cn ?? '',
+      en: updatedMember.bio.en ?? "",
+      cn: updatedMember.bio.cn ?? "",
     },
     imageUrl: updatedMember.imageUrl,
-    linkedinUrl: updatedMember.linkedinUrl || '',
+    linkedinUrl: updatedMember.linkedinUrl || "",
   };
 
   const res = await fetch(`${TEAM_ENDPOINT}/${updatedMember.id}`, {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify(payload),
   });
@@ -114,9 +118,9 @@ export const updateTeamMember = async (updatedMember: TeamMember): Promise<TeamM
  */
 export const deleteTeamMember = async (memberId: string): Promise<void> => {
   const res = await fetch(`${TEAM_ENDPOINT}/${memberId}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
-      Accept: 'application/json',
+      Accept: "application/json",
     },
   });
 

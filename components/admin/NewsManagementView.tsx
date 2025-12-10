@@ -1,11 +1,17 @@
-import { GoogleGenAI, Type } from '@google/genai';
-import React, { FormEvent, useCallback, useEffect, useMemo, useState } from 'react';
+import { GoogleGenAI, Type } from "@google/genai";
+import React, {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
-import { useTranslations } from '../../contexts/i18n';
+import { useTranslations } from "../../contexts/i18n";
 
-import ConfirmationModal from '../../components/ConfirmationModal';
-import NewsPreviewModal from '../../components/NewsPreviewModal';
-import RichTextEditor from '../../components/RichTextEditor';
+import ConfirmationModal from "../../components/ConfirmationModal";
+import NewsPreviewModal from "../../components/NewsPreviewModal";
+import RichTextEditor from "../../components/RichTextEditor";
 
 import {
   createNews,
@@ -14,50 +20,60 @@ import {
   updateNews as updateNewsApi,
   type NewsFormPayload,
   type PaginatedNewsResponse,
-} from '../../services/newsService';
+} from "../../services/newsService";
 
-import { Language, NewsArticle, NewsCategory } from '../../types';
+import { Language, NewsArticle, NewsCategory } from "../../types";
 
 const ai = new GoogleGenAI({
-  apiKey: 'AIzaSyB0BBG9LSqG_aIGzOD3Paka8psv-HqMczA',
+  apiKey: "AIzaSyB0BBG9LSqG_aIGzOD3Paka8psv-HqMczA",
 });
 
-const newsCategories: NewsCategory[] = ['company', 'division', 'industry', 'press'];
+const newsCategories: NewsCategory[] = [
+  "company",
+  "division",
+  "industry",
+  "press",
+];
 
 const emptyNewsArticle: NewsFormPayload = {
-  title: { id: '', en: '', cn: '' },
-  content: { id: '', en: '', cn: '' },
+  title: { id: "", en: "", cn: "" },
+  content: { id: "", en: "", cn: "" },
   imageUrls: [],
-  category: 'company',
+  category: "company",
 };
 
 // base URL backend untuk file gambar
-const IMAGE_BASE_URL = 'http://localhost:4000';
+const IMAGE_BASE_URL = "https://api.viniela.id";
 
 const resolveImageUrl = (url: string) => {
-  if (!url) return '';
+  if (!url) return "";
   // kalau sudah full URL, biarkan
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
   // kalau relatif ("/uploads/..." atau "uploads/..."), prepend base URL
-  return `${IMAGE_BASE_URL}${url.startsWith('/') ? '' : '/'}${url}`;
+  return `${IMAGE_BASE_URL}${url.startsWith("/") ? "" : "/"}${url}`;
 };
 
-type ToastFn = (message: string, type?: 'success' | 'error') => void;
+type ToastFn = (message: string, type?: "success" | "error") => void;
 
 interface NewsManagementViewProps {
   showToast: ToastFn;
 }
 
-const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) => {
+const NewsManagementView: React.FC<NewsManagementViewProps> = ({
+  showToast,
+}) => {
   const { t } = useTranslations();
 
   const [news, setNews] = useState<NewsArticle[]>([]);
-  const [newsMeta, setNewsMeta] = useState<PaginatedNewsResponse['meta'] | null>(null);
+  const [newsMeta, setNewsMeta] = useState<
+    PaginatedNewsResponse["meta"] | null
+  >(null);
   const [newsPage, setNewsPage] = useState(1);
   const NEWS_LIMIT = 20;
 
   const [editingNews, setEditingNews] = useState<NewsArticle | null>(null);
-  const [newsFormData, setNewsFormData] = useState<NewsFormPayload>(emptyNewsArticle);
+  const [newsFormData, setNewsFormData] =
+    useState<NewsFormPayload>(emptyNewsArticle);
   const [newsFormErrors, setNewsFormErrors] = useState<{
     [key: string]: string;
   }>({});
@@ -73,14 +89,14 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
 
   const validateField = useCallback(
     (name: string, value: string) => {
-      let error = '';
-      if (!value || value.trim() === '') {
+      let error = "";
+      if (!value || value.trim() === "") {
         error = t.admin.validation.required;
       }
 
       setNewsFormErrors((prev) => ({ ...prev, [name]: error }));
     },
-    [t.admin.validation.required],
+    [t.admin.validation.required]
   );
 
   const loadNews = useCallback(
@@ -91,11 +107,16 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
         setNewsMeta(res.meta);
         setNewsPage(res.meta.page);
       } catch (err) {
-        console.error('Gagal memuat berita:', err);
-        showToast(err instanceof Error ? err.message : 'Gagal memuat berita dari server', 'error');
+        console.error("Gagal memuat berita:", err);
+        showToast(
+          err instanceof Error
+            ? err.message
+            : "Gagal memuat berita dari server",
+          "error"
+        );
       }
     },
-    [NEWS_LIMIT, showToast],
+    [NEWS_LIMIT, showToast]
   );
 
   useEffect(() => {
@@ -104,11 +125,11 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
 
   const handleNewsFormChange = useCallback(
     (field: string, value: any) => {
-      const fieldName = field.replace(/\.(id|en|cn)$/, '');
-      validateField(fieldName, typeof value === 'string' ? value : '');
+      const fieldName = field.replace(/\.(id|en|cn)$/, "");
+      validateField(fieldName, typeof value === "string" ? value : "");
 
       setNewsFormData((prev) => {
-        const keys = field.split('.');
+        const keys = field.split(".");
         if (keys.length === 2) {
           const [objKey, langKey] = keys as [keyof NewsFormPayload, string];
           const prevAny = prev as any;
@@ -127,7 +148,7 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
         } as NewsFormPayload;
       });
     },
-    [validateField],
+    [validateField]
   );
 
   /**
@@ -135,34 +156,40 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
    */
   const uploadImagesToServer = useCallback(
     async (files: FileList | File[]): Promise<string[]> => {
-      const fileArray: File[] = Array.isArray(files) ? files : Array.from(files as FileList);
+      const fileArray: File[] = Array.isArray(files)
+        ? files
+        : Array.from(files as FileList);
 
       if (fileArray.length === 0) return [];
 
       const formData = new FormData();
 
       for (const file of fileArray) {
-        if (file && file.type && file.type.startsWith('image/')) {
-          formData.append('files', file);
+        if (file && file.type && file.type.startsWith("image/")) {
+          formData.append("files", file);
         }
       }
 
-      if (!formData.has('files')) {
-        showToast('File yang dipilih bukan gambar', 'error');
+      if (!formData.has("files")) {
+        showToast("File yang dipilih bukan gambar", "error");
         return [];
       }
 
       try {
         setIsUploadingImages(true);
 
-        const res = await fetch('http://localhost:4000/api/news/upload-images', {
-          method: 'POST',
-          body: formData,
-        });
+        const res = await fetch(
+          "https://api.viniela.id/api/news/upload-images",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         if (!res.ok) {
           const errJson = await res.json().catch(() => null);
-          const msg = errJson?.error || `Gagal upload gambar (status ${res.status})`;
+          const msg =
+            errJson?.error || `Gagal upload gambar (status ${res.status})`;
           throw new Error(msg);
         }
 
@@ -174,21 +201,24 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
           : [];
 
         if (!urls.length) {
-          showToast('Upload berhasil, tapi tidak ada URL gambar dikembalikan', 'error');
+          showToast(
+            "Upload berhasil, tapi tidak ada URL gambar dikembalikan",
+            "error"
+          );
         } else {
-          showToast('Gambar berhasil diunggah', 'success');
+          showToast("Gambar berhasil diunggah", "success");
         }
 
         return urls;
       } catch (error) {
-        console.error('Upload gambar gagal:', error);
-        showToast('Gagal upload gambar', 'error');
+        console.error("Upload gambar gagal:", error);
+        showToast("Gagal upload gambar", "error");
         return [];
       } finally {
         setIsUploadingImages(false);
       }
     },
-    [showToast],
+    [showToast]
   );
 
   /**
@@ -204,7 +234,7 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
         imageUrls: [...prev.imageUrls, ...urls],
       }));
     },
-    [uploadImagesToServer],
+    [uploadImagesToServer]
   );
 
   const handleDrop = useCallback(
@@ -216,14 +246,14 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
         processAndAddImages(e.dataTransfer.files);
       }
     },
-    [processAndAddImages, isUploadingImages],
+    [processAndAddImages, isUploadingImages]
   );
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (isUploadingImages) return;
     if (e.target.files) {
       processAndAddImages(e.target.files);
-      e.target.value = ''; // reset supaya bisa pilih file yang sama lagi
+      e.target.value = ""; // reset supaya bisa pilih file yang sama lagi
     }
   };
 
@@ -234,28 +264,28 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
     }));
   }, []);
 
-  const handleTranslate = async (field: 'title' | 'content') => {
+  const handleTranslate = async (field: "title" | "content") => {
     const sourceText = newsFormData[field].id;
     if (!sourceText) return;
     setIsTranslating((prev) => ({ ...prev, [field]: true }));
     try {
-      const isHtml = field === 'content';
+      const isHtml = field === "content";
       const prompt = isHtml
         ? `Terjemahkan konten teks di dalam HTML berikut dari Bahasa Indonesia ke Bahasa Inggris dan Bahasa Mandarin. Pertahankan struktur dan tag HTML apa adanya. HTML Indonesia: "${sourceText}". Berikan respons dalam format JSON yang valid dengan key "en" untuk Bahasa Inggris dan "cn" untuk Bahasa Mandarin.`
         : `Terjemahkan teks Bahasa Indonesia berikut ke Bahasa Inggris dan Bahasa Mandarin. Teks Indonesia: "${sourceText}". Berikan respons dalam format JSON yang valid dengan key "en" untuk Bahasa Inggris dan "cn" untuk Bahasa Mandarin.`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: "gemini-2.5-flash",
         contents: prompt,
         config: {
-          responseMimeType: 'application/json',
+          responseMimeType: "application/json",
           responseSchema: {
             type: Type.OBJECT,
             properties: {
               en: { type: Type.STRING },
               cn: { type: Type.STRING },
             },
-            required: ['en', 'cn'],
+            required: ["en", "cn"],
           },
         },
       });
@@ -265,8 +295,8 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
       // handleNewsFormChange(`${field}.en`, translatedText.en);
       // handleNewsFormChange(`${field}.cn`, translatedText.cn);
     } catch (error) {
-      console.error('Gagal menerjemahkan:', error);
-      showToast('Gagal menerjemahkan teks', 'error');
+      console.error("Gagal menerjemahkan:", error);
+      showToast("Gagal menerjemahkan teks", "error");
     } finally {
       setIsTranslating((prev) => ({ ...prev, [field]: false }));
     }
@@ -287,7 +317,7 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
     if (Object.values(errors).some((e) => e)) return;
 
     if (isUploadingImages) {
-      showToast('Tunggu sampai upload gambar selesai', 'error');
+      showToast("Tunggu sampai upload gambar selesai", "error");
       return;
     }
 
@@ -312,8 +342,11 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
 
       resetNewsForm();
     } catch (err) {
-      console.error('Gagal menyimpan berita:', err);
-      showToast(err instanceof Error ? err.message : 'Gagal menyimpan berita ke server', 'error');
+      console.error("Gagal menyimpan berita:", err);
+      showToast(
+        err instanceof Error ? err.message : "Gagal menyimpan berita ke server",
+        "error"
+      );
     } finally {
       setIsSaving(false);
     }
@@ -340,15 +373,21 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
       if (editingNews?.id === newsToDelete) resetNewsForm();
       showToast(t.admin.toast.newsDeleted);
     } catch (err) {
-      console.error('Gagal menghapus berita:', err);
-      showToast(err instanceof Error ? err.message : 'Gagal menghapus berita di server', 'error');
+      console.error("Gagal menghapus berita:", err);
+      showToast(
+        err instanceof Error ? err.message : "Gagal menghapus berita di server",
+        "error"
+      );
     } finally {
       setNewsToDelete(null);
     }
   };
 
   const isNewsFormValid = useMemo(() => {
-    return Object.values(newsFormErrors).every((error) => !error) && newsFormData.title.id;
+    return (
+      Object.values(newsFormErrors).every((error) => !error) &&
+      newsFormData.title.id
+    );
   }, [newsFormErrors, newsFormData.title.id]);
 
   return (
@@ -380,7 +419,7 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                 <h3 className="form-section-title">{t.admin.titleLabel}</h3>
                 <button
                   type="button"
-                  onClick={() => handleTranslate('title')}
+                  onClick={() => handleTranslate("title")}
                   disabled={isTranslating.title || !newsFormData.title.id}
                   className="translate-btn"
                 >
@@ -389,7 +428,11 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                   ) : (
                     <i className="fa-solid fa-language w-4 h-4" />
                   )}
-                  <span>{isTranslating.title ? t.admin.translating : t.admin.translateFromId}</span>
+                  <span>
+                    {isTranslating.title
+                      ? t.admin.translating
+                      : t.admin.translateFromId}
+                  </span>
                 </button>
               </div>
               <div className="space-y-2">
@@ -397,10 +440,16 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                   type="text"
                   placeholder={t.admin.titleIdPlaceholder}
                   value={newsFormData.title.id}
-                  onChange={(e) => handleNewsFormChange('title.id', e.target.value)}
-                  className={`form-input ${newsFormErrors.title ? 'border-red-500' : ''}`}
+                  onChange={(e) =>
+                    handleNewsFormChange("title.id", e.target.value)
+                  }
+                  className={`form-input ${
+                    newsFormErrors.title ? "border-red-500" : ""
+                  }`}
                 />
-                {newsFormErrors.title && <p className="form-error">{newsFormErrors.title}</p>}
+                {newsFormErrors.title && (
+                  <p className="form-error">{newsFormErrors.title}</p>
+                )}
               </div>
             </section>
 
@@ -409,7 +458,12 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
               <h3 className="form-section-title">{t.admin.categoryLabel}</h3>
               <select
                 value={newsFormData.category}
-                onChange={(e) => handleNewsFormChange('category', e.target.value as NewsCategory)}
+                onChange={(e) =>
+                  handleNewsFormChange(
+                    "category",
+                    e.target.value as NewsCategory
+                  )
+                }
                 className="form-input"
               >
                 {newsCategories.map((cat) => (
@@ -437,7 +491,10 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                       className="absolute -top-2 -right-2 p-1.5 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors opacity-0 group-hover:opacity-100"
                       aria-label={t.imageUploader.remove}
                     >
-                      <i className="fa-solid fa-xmark text-xs w-3 h-3" aria-hidden="true"></i>
+                      <i
+                        className="fa-solid fa-xmark text-xs w-3 h-3"
+                        aria-hidden="true"
+                      ></i>
                     </button>
                   </div>
                 ))}
@@ -447,8 +504,8 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                 onDrop={handleDrop}
                 className={`relative flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer transition-colors ${
                   isUploadingImages
-                    ? 'border-gray-300 bg-gray-100 cursor-not-allowed opacity-70'
-                    : 'border-gray-300 bg-gray-50 hover:bg-gray-100'
+                    ? "border-gray-300 bg-gray-100 cursor-not-allowed opacity-70"
+                    : "border-gray-300 bg-gray-50 hover:bg-gray-100"
                 }`}
               >
                 <div className="flex flex-col items-center justify-center text-center text-viniela-gray">
@@ -459,9 +516,9 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                   <p className="text-sm">
                     <span className="font-semibold">
                       {isUploadingImages
-                        ? t.imageUploader.uploading || 'Mengunggah gambar...'
+                        ? t.imageUploader.uploading || "Mengunggah gambar..."
                         : t.imageUploader.uploadCTA}
-                    </span>{' '}
+                    </span>{" "}
                     {!isUploadingImages && t.imageUploader.dragAndDrop}
                   </p>
                   <p className="text-xs">{t.imageUploader.fileTypes}</p>
@@ -483,7 +540,7 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                 <h3 className="form-section-title">{t.admin.contentLabel}</h3>
                 <button
                   type="button"
-                  onClick={() => handleTranslate('content')}
+                  onClick={() => handleTranslate("content")}
                   disabled={isTranslating.content || !newsFormData.content.id}
                   className="translate-btn"
                 >
@@ -493,14 +550,16 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                     <i className="fa-solid fa-language w-4 h-4" />
                   )}
                   <span>
-                    {isTranslating.content ? t.admin.translating : t.admin.translateFromId}
+                    {isTranslating.content
+                      ? t.admin.translating
+                      : t.admin.translateFromId}
                   </span>
                 </button>
               </div>
               <RichTextEditor
                 placeholder={t.admin.contentIdPlaceholder}
                 value={newsFormData.content.id}
-                onChange={(html) => handleNewsFormChange('content.id', html)}
+                onChange={(html) => handleNewsFormChange("content.id", html)}
               />
             </section>
 
@@ -513,7 +572,11 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                 {t.admin.preview}
               </button>
               {editingNews && (
-                <button type="button" onClick={resetNewsForm} className="btn-secondary">
+                <button
+                  type="button"
+                  onClick={resetNewsForm}
+                  className="btn-secondary"
+                >
                   {t.admin.cancelButton}
                 </button>
               )}
@@ -526,7 +589,7 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                   <i className="fa-solid fa-spinner fa-spin w-5 h-5 mr-2" />
                 )}
                 {isUploadingImages
-                  ? 'Menunggu upload gambar...'
+                  ? "Menunggu upload gambar..."
                   : isSaving
                   ? t.admin.savingButton
                   : editingNews
@@ -602,7 +665,9 @@ const NewsManagementView: React.FC<NewsManagementViewProps> = ({ showToast }) =>
                   </div>
                 ))
               ) : (
-                <p className="text-viniela-gray text-center py-8">{t.admin.noNews}</p>
+                <p className="text-viniela-gray text-center py-8">
+                  {t.admin.noNews}
+                </p>
               )}
             </div>
 

@@ -4,7 +4,7 @@ import { NewsArticle, NewsCategory } from "../types";
 const API_BASE =
   (import.meta as any).env?.VITE_API_BASE ||
   process.env.VITE_API_BASE ||
-  "http://localhost:4000";
+  "https://api.viniela.id";
 
 export type NewsFormPayload = {
   title: { id: string; en: string; cn: string };
@@ -66,7 +66,6 @@ export async function getNewsById(id: string): Promise<NewsArticle> {
 export async function createNews(
   payload: NewsFormPayload
 ): Promise<NewsArticle> {
-  alert("test");
   const res = await fetch(`${API_BASE}/api/news`, {
     method: "POST",
     headers: {
