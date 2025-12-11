@@ -116,6 +116,8 @@ const translations = {
     divisionContent: {
       'viniela-design': {
         aboutTitle: 'Seni Merancang Ruang: Konsep Desain Interior',
+        heroButtonText: "Hubungi Kami",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Di Viniela Design, kami percaya bahwa setiap ruang memiliki potensi untuk menceritakan sebuah kisah. Fokus kami adalah pada tahap konseptualisasi, di mana ide-ide diubah menjadi visual yang memukau. Tim desainer kami berspesialisasi dalam menciptakan denah yang fungsional, papan suasana (mood board) yang menginspirasi, dan rendering 3D fotorealistik yang memungkinkan Anda melihat visi Anda sebelum satu paku pun ditancapkan.',
         services: [
@@ -181,6 +183,8 @@ const translations = {
       },
       'viniela-interior': {
         aboutTitle: 'Membangun Visi: Eksekusi & Realisasi Interior',
+        heroButtonText: "Hubungi Kami",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Interior adalah tempat di mana desain bertemu dengan keahlian. Kami mengambil konsep yang telah dirancang dengan cermat oleh Viniela Design dan mengubahnya menjadi kenyataan yang dapat Anda sentuh. Spesialisasi kami terletak pada konstruksi interior, fabrikasi furnitur kustom, dan instalasi presisi. Dengan manajemen proyek yang teliti, kami memastikan setiap detail dieksekusi dengan sempurna, tepat waktu, dan sesuai anggaran.',
         services: [
@@ -251,6 +255,8 @@ const translations = {
       },
       'viniela-kontraktor': {
         aboutTitle: 'Membangun Fondasi Masa Depan: Jasa Konstruksi Struktural',
+        heroButtonText: "Hubungi Kami",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Kontraktor adalah pilar kekuatan dalam VINIELA Group, menyediakan layanan konstruksi umum yang komprehensif untuk proyek skala besar. Dari pembangunan rumah tinggal dan kompleks komersial hingga renovasi struktural, kami menangani setiap aspek dengan presisi teknik dan manajemen yang solid. Keahlian kami mencakup perencanaan anggaran (RAB) yang akurat, pengawasan proyek yang ketat, dan komitmen terhadap keselamatan dan kualitas.',
         services: [
@@ -321,6 +327,8 @@ const translations = {
       },
       'viniela-home-service': {
         aboutTitle: 'Solusi Lengkap Perawatan & Perbaikan Properti Anda',
+        heroButtonText: "Dapatkan Layanan",
+        heroButtonUrl: "https://homeservice.viniela.id/",
         aboutContent:
           'Viniela Home & Service hadir untuk memberikan ketenangan pikiran bagi para pemilik properti. Kami adalah mitra andal Anda untuk semua kebutuhan perawatan, perbaikan, dan pemeliharaan, baik untuk hunian pribadi maupun properti komersial. Tim teknisi profesional kami siap menangani berbagai masalah, dari perbaikan kecil hingga perawatan rutin, memastikan properti Anda selalu dalam kondisi prima.',
         services: [
@@ -394,6 +402,8 @@ const translations = {
       },
       'viniela-home-decor': {
         aboutTitle: 'Seni Menata Ruang: Solusi Dekorasi & Furnitur',
+        heroButtonText: "Dapatkan Layanan",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Home & Dekor mengubah rumah menjadi hunian impian. Kami berspesialisasi dalam kurasi furnitur berkualitas, pemilihan aksesoris yang tepat, dan penataan ruang yang harmonis untuk menciptakan suasana yang mencerminkan kepribadian Anda. Dari satu ruangan hingga seluruh rumah, tim kami siap menyempurnakan setiap detail.',
         services: [
@@ -467,6 +477,8 @@ const translations = {
       },
       'viniela-property': {
         aboutTitle: 'Mewujudkan Kepemilikan: Spesialis Penjualan Properti',
+        heroButtonText: "Cari Properti",
+        heroButtonUrl: "https://property.viniela.id/",
         aboutContent:
           'Viniela Property adalah jembatan Anda menuju properti impian. Kami fokus secara eksklusif pada penjualan properti residensial dan komersial. Dengan pengetahuan pasar yang mendalam, jaringan luas, dan keahlian negosiasi, kami memastikan proses jual beli properti Anda berjalan lancar, transparan, dan menguntungkan.',
         services: [
@@ -540,6 +552,8 @@ const translations = {
       },
       'viniela-management-property': {
         aboutTitle: 'Optimalkan Aset Anda: Manajemen Properti untuk Dijual & Disewa',
+        heroButtonText: "Titipkan Properti Anda",
+        heroButtonUrl: "https://property.viniela.id/id/list-your-property",
         aboutContent:
           'Serahkan pengelolaan properti Anda kepada kami. Viniela Management Property melayani pemilik properti yang ingin memaksimalkan potensi aset mereka, baik untuk dijual maupun disewakan. Kami menangani pemasaran, penyaringan penyewa, pemeliharaan, dan administrasi, sehingga Anda bisa tenang dan mendapatkan hasil maksimal.',
         services: [
@@ -610,6 +624,8 @@ const translations = {
       },
       'viniela-real-estate': {
         aboutTitle: 'Mengembangkan & Memasarkan Properti Bernilai Tinggi',
+        heroButtonText: "Hubungi Kami",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Real Estate adalah kekuatan pendorong di balik proyek-proyek properti inovatif. Kami berspesialisasi dalam seluruh siklus pengembangan real estat, mulai dari akuisisi lahan, perencanaan, manajemen proyek, hingga strategi pemasaran dan penjualan. Visi kami adalah menciptakan ruang hidup dan komersial yang tidak hanya menguntungkan secara finansial tetapi juga meningkatkan kualitas hidup dan komunitas.',
         services: [
@@ -682,6 +698,8 @@ const translations = {
       },
       'viniela-legalitas': {
         aboutTitle: 'Jasa Perizinan & Solusi Kantor Terlengkap No. 1 di Indonesia',
+        heroButtonText: "Dapatkan Layanan",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Legalitas adalah mitra strategis Anda untuk menavigasi kompleksitas hukum bisnis di Indonesia. Kami menyediakan solusi satu atap untuk semua kebutuhan perizinan usaha, dari pendirian perusahaan hingga pengurusan izin khusus. Selain itu, kami menawarkan solusi ruang kantor yang fleksibel untuk mendukung pertumbuhan bisnis Anda, menjadikannya pilihan utama bagi pengusaha dan korporasi.',
         services: [
@@ -823,6 +841,8 @@ const translations = {
       },
       'viniela-digital-agency': {
         aboutTitle: 'Membentuk Identitas Merek yang Berdampak di Era Digital',
+        heroButtonText: "Jelajahi Layanan Kami",
+        heroButtonUrl: "https://artiqstudio.id/",
         aboutContent:
           'Viniela Digital Agency adalah mitra strategis Anda dalam membangun identitas merek yang kuat dan pengalaman digital yang memikat. Kami menggabungkan wawasan pasar dengan keunggulan kreatif untuk menghasilkan solusi yang tidak hanya indah secara visual, tetapi juga mendorong pertumbuhan bisnis.',
         services: [
@@ -894,6 +914,8 @@ const translations = {
       },
       'viniela-medis': {
         aboutTitle: 'Layanan Kesehatan Premium, Langsung di Rumah Anda',
+        heroButtonText: "Dapatkan Layanan",
+        heroButtonUrl: "https://christimedicalhomecare.viniela.id/",
         aboutContent:
           'Viniela Medis, didukung oleh dokter representatif SCCR Indonesia, menghadirkan layanan kesehatan eksklusif langsung ke kenyamanan rumah Anda. Kami memahami pentingnya privasi dan kenyamanan, sehingga kesehatan Anda ditangani secara personal dan profesional tanpa perlu meninggalkan rumah.',
         services: [
@@ -964,6 +986,8 @@ const translations = {
       },
       'viniela-otomotif': {
         aboutTitle: 'Solusi Otomotif Terpadu: Jual, Beli, & Sewa Kendaraan',
+        heroButtonText: "Cari Kendaraan",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Otomotif adalah mitra terpercaya Anda untuk semua kebutuhan kendaraan. Kami menyediakan platform yang mudah, transparan, dan andal untuk jual-beli mobil baru dan bekas, serta layanan sewa kendaraan yang fleksibel untuk kebutuhan personal maupun bisnis.',
         services: [
@@ -1046,6 +1070,8 @@ const translations = {
       },
       'viniela-komoditas': {
         aboutTitle: 'Menjembatani Sumber Daya Alam dengan Pasar Global',
+        heroButtonText: "Hubungi Kami",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Komoditas berperan sebagai penghubung vital dalam rantai pasok sumber daya alam. Kami memfasilitasi perdagangan antara pemilik material alam dengan pembeli global, serta menyediakan dukungan logistik krusial, mulai dari penyewaan kapal pengangkut hingga penyediaan suku cadang.',
         services: [
@@ -1114,9 +1140,11 @@ const translations = {
           },
         ],
       },
-      // Konten default untuk divisi lain untuk diisi nanti
+      // Konsultan Bisnis
       default: {
         aboutTitle: 'Keunggulan dalam Setiap Layanan',
+        heroButtonText: "Hubungi Kami",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Divisi kami berdedikasi untuk memberikan layanan berkualitas tertinggi di bidangnya. Kami menggabungkan keahlian industri dengan pendekatan yang berpusat pada klien untuk memberikan hasil yang luar biasa. Tim profesional kami berkomitmen pada inovasi, integritas, dan kepuasan Anda.',
         services: [
@@ -1717,6 +1745,8 @@ const translations = {
     divisionContent: {
       'viniela-design': {
         aboutTitle: 'The Art of Space Planning: Interior Design Concepts',
+        heroButtonText: "Get in Touch",
+        heroButtonUrl: "/contact",
         aboutContent:
           'At Viniela Design, we believe every space has the potential to tell a story. Our focus is purely on the conceptualization phase, where ideas are transformed into stunning visuals. Our team of designers specializes in creating functional layouts, inspiring mood boards, and photorealistic 3D renderings that allow you to see your vision before a single nail is hammered.',
         services: [
@@ -1782,6 +1812,8 @@ const translations = {
       },
       'viniela-interior': {
         aboutTitle: 'Building the Vision: Interior Execution & Realization',
+        heroButtonText: "Get in Touch",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Interior is where design meets craftsmanship. We take the meticulously crafted concepts from Viniela Design and turn them into tangible reality. Our specialization lies in interior construction, custom furniture fabrication, and precision installation. With diligent project management, we ensure every detail is executed flawlessly, on time, and within budget.',
         services: [
@@ -1853,6 +1885,8 @@ const translations = {
       },
       'viniela-kontraktor': {
         aboutTitle: 'Building the Foundations of Tomorrow: Structural Construction Services',
+        heroButtonText: "Get in Touch",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Kontraktor is the pillar of strength in VINIELA Group, providing comprehensive general construction services for large-scale projects. From residential homes and commercial complexes to structural renovations, we handle every aspect with engineering precision and solid management. Our expertise includes accurate budget planning (RAB), rigorous project supervision, and a commitment to safety and quality.',
         services: [
@@ -1923,6 +1957,8 @@ const translations = {
       },
       'viniela-home-service': {
         aboutTitle: 'Complete Care & Repair Solutions for Your Property',
+        heroButtonText: "Get Service Now",
+        heroButtonUrl: "https://homeservice.viniela.id/",
         aboutContent:
           'Viniela Home & Service is here to provide peace of mind for property owners. We are your reliable partner for all maintenance, repair, and upkeep needs, for both private residences and commercial properties. Our team of professional technicians is ready to handle various issues, from minor fixes to routine maintenance, ensuring your property is always in prime condition.',
         services: [
@@ -1993,6 +2029,8 @@ const translations = {
       },
       'viniela-home-decor': {
         aboutTitle: 'The Art of Styling: Decoration & Furniture Solutions',
+        heroButtonText: "Get in Touch",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Home & Decor transforms houses into dream homes. We specialize in curating quality furniture, selecting the right accessories, and creating harmonious room layouts to craft an atmosphere that reflects your personality. From a single room to an entire house, our team is ready to perfect every detail.',
         services: [
@@ -2062,6 +2100,8 @@ const translations = {
       },
       'viniela-property': {
         aboutTitle: 'Achieving Ownership: Property Sales Specialists',
+        heroButtonText: "Find Your Property",
+        heroButtonUrl: "https://property.viniela.id/id",
         aboutContent:
           'Viniela Property is your bridge to your dream property. We focus exclusively on the sale of residential and commercial properties. With deep market knowledge, an extensive network, and negotiation expertise, we ensure your buying or selling process is smooth, transparent, and profitable.',
         services: [
@@ -2133,6 +2173,8 @@ const translations = {
       },
       'viniela-management-property': {
         aboutTitle: 'Optimize Your Asset: Property Management for Sale & Rent',
+        heroButtonText: "List Your Property",
+        heroButtonUrl: "https://property.viniela.id/id/list-your-property",
         aboutContent:
           "Leave your property management to us. Viniela Property Management serves property owners who want to maximize their asset's potential, whether for sale or rent. We handle marketing, tenant screening, maintenance, and administration, giving you peace of mind and maximum returns.",
         services: [
@@ -2201,6 +2243,8 @@ const translations = {
       },
       'viniela-real-estate': {
         aboutTitle: 'Developing & Marketing High-Value Properties',
+        heroButtonText: "Get in Touch",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Real Estate is the driving force behind innovative property projects. We specialize in the entire real estate development cycle, from land acquisition, planning, and project management to marketing and sales strategies. Our vision is to create living and commercial spaces that are not only financially profitable but also enhance the quality of life and community.',
         services: [
@@ -2270,6 +2314,8 @@ const translations = {
       },
       'viniela-legalitas': {
         aboutTitle: "Indonesia's #1 Full-Service Permitting & Office Solution",
+        heroButtonText: "Get Service Now",
+        heroButtonUrl: "/contact",
         aboutContent:
           "Viniela Legality is your strategic partner for navigating Indonesia's complex business laws. We provide a one-stop solution for all business licensing needs, from company establishment to special permit applications. Furthermore, we offer flexible office space solutions to support your business growth, making us the top choice for entrepreneurs and corporations.",
         services: [
@@ -2408,6 +2454,8 @@ const translations = {
       },
       'viniela-digital-agency': {
         aboutTitle: 'Shaping Impactful Brand Identities in the Digital Era',
+        heroButtonText: "Explore Our Services",
+        heroButtonUrl: "https://artiqstudio.id/",
         aboutContent:
           'Viniela Digital Agency is your strategic partner in building strong brand identities and captivating digital experiences. We combine market insights with creative excellence to produce solutions that are not only visually beautiful but also drive business growth.',
         services: [
@@ -2479,6 +2527,8 @@ const translations = {
       },
       'viniela-medis': {
         aboutTitle: 'Premium Healthcare Services, Directly at Your Home',
+        heroButtonText: "Book a Service",
+        heroButtonUrl: "https://christimedicalhomecare.viniela.id/",
         aboutContent:
           'Viniela Medical, supported by representative doctors from SCCR Indonesia, brings exclusive healthcare services directly to the comfort of your home. We understand the importance of privacy and comfort, ensuring your health is handled personally and professionally without you needing to leave home.',
         services: [
@@ -2547,6 +2597,8 @@ const translations = {
       },
       'viniela-otomotif': {
         aboutTitle: 'Integrated Automotive Solutions: Buy, Sell, & Rent',
+        heroButtonText: "Find Your Vehicle",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Automotive is your trusted partner for all vehicle needs. We provide an easy, transparent, and reliable platform for buying and selling new and used cars, as well as flexible vehicle rental services for personal and business needs.',
         services: [
@@ -2624,6 +2676,8 @@ const translations = {
       },
       'viniela-komoditas': {
         aboutTitle: 'Bridging Natural Resources with the Global Market',
+        heroButtonText: "Get in Touch",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela Commodities acts as a vital link in the natural resources supply chain. We facilitate trade between owners of raw materials and global buyers, while also providing crucial logistical support, from chartering transport vessels to supplying spare parts.',
         services: [
@@ -2693,6 +2747,8 @@ const translations = {
       },
       default: {
         aboutTitle: 'Excellence in Every Service',
+        heroButtonText: "Get in Touch",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Our division is dedicated to providing the highest quality services in its field. We combine industry expertise with a client-centric approach to deliver outstanding results. Our team of professionals is committed to innovation, integrity, and your satisfaction.',
         services: [
@@ -3278,6 +3334,8 @@ const translations = {
     divisionContent: {
       'viniela-design': {
         aboutTitle: '空间规划的艺术：室内设计概念',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           '在Viniela设计，我们相信每个空间都有潜力讲述一个故事。我们的重点纯粹是概念化阶段，将想法转化为令人惊叹的视觉效果。我们的设计师团队专门创造功能性布局、鼓舞人心的情绪板和逼真的3D渲染，让您在钉下一颗钉子之前就能看到您的愿景。',
         services: [
@@ -3340,6 +3398,8 @@ const translations = {
       },
       'viniela-interior': {
         aboutTitle: '构筑愿景：室内执行与实现',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela 室内是设计与工艺相遇的地方。我们将Viniela设计精心打造的概念转化为有形的现实。我们的专长在于室内施工、定制家具制造和精密安装。通过勤奋的项目管理，我们确保每个细节都完美无瑕地执行，按时并在预算内完成。',
         services: [
@@ -3402,6 +3462,8 @@ const translations = {
       },
       'viniela-kontraktor': {
         aboutTitle: '构筑未来基石：结构建筑服务',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela 承包商是VINIELA集团的力量支柱，为大型项目提供全面的总承包服务。从住宅和商业综合体到结构改造，我们以工程精度和坚实的管理处理每一个方面。我们的专长包括准确的预算规划（RAB）、严格的项目监督以及对安全和质量的承诺。',
         services: [
@@ -3464,6 +3526,8 @@ const translations = {
       },
       'viniela-home-service': {
         aboutTitle: '为您的物业提供全面的保养与维修解决方案',
+        heroButtonText: "获取服务",
+        heroButtonUrl: "https://homeservice.viniela.id/",
         aboutContent:
           'Viniela 家居服务旨在为业主提供安心。我们是您所有维护、修理和保养需求的可靠伙伴，无论是私人住宅还是商业物业。我们的专业技术人员团队随时准备处理各种问题，从小修小补到定期维护，确保您的物业始终处于最佳状态。',
         services: [
@@ -3526,6 +3590,8 @@ const translations = {
       },
       'viniela-home-decor': {
         aboutTitle: '造型艺术：装饰与家具解决方案',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela 家居装饰将房屋变成梦想家园。我们专注于策划优质家具，挑选合适的配饰，并创造和谐的房间布局，以营造反映您个性的氛围。从单个房间到整栋房屋，我们的团队随时准备完善每一个细节。',
         services: [
@@ -3588,6 +3654,8 @@ const translations = {
       },
       'viniela-property': {
         aboutTitle: '实现所有权：房地产销售专家',
+        heroButtonText: "搜索房产",
+        heroButtonUrl: "https://property.viniela.id/id",
         aboutContent:
           'Viniela 房地产是您通往梦想房产的桥梁。我们专注于住宅和商业地产的销售。凭借深厚的市场知识、广泛的网络和谈判专长，我们确保您的买卖过程顺利、透明且有利可图。',
         services: [
@@ -3650,6 +3718,8 @@ const translations = {
       },
       'viniela-management-property': {
         aboutTitle: '优化您的资产：出售与出租的物业管理',
+        heroButtonText: "信托财产",
+        heroButtonUrl: "https://property.viniela.id/id/list-your-property",
         aboutContent:
           '将您的物业管理交给我们。Viniela 物业管理为希望最大化其资产潜力（无论是出售还是出租）的业主提供服务。我们处理营销、租户筛选、维护和行政管理，让您高枕无忧并获得最大回报。',
         services: [
@@ -3712,6 +3782,8 @@ const translations = {
       },
       'viniela-real-estate': {
         aboutTitle: '开发与营销高价值物业',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela 房地产是创新物业项目背后的驱动力。我们专注于整个房地产开发周期，从土地收购、规划和项目管理到营销和销售策略。我们的愿景是创造不仅在财务上有利可图，而且能提高生活质量和社区的居住和商业空间。',
         services: [
@@ -3774,6 +3846,8 @@ const translations = {
       },
       'viniela-legalitas': {
         aboutTitle: '印尼排名第一的全方位许可与办公解决方案',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela 法律服务是您在印尼复杂的商业法律中航行的战略合作伙伴。我们为所有商业许可需求提供一站式解决方案，从公司成立到特殊许可证申请。此外，我们提供灵活的办公空间解决方案以支持您的业务增长，使我们成为企业家和公司的首选。',
         services: [
@@ -3900,6 +3974,8 @@ const translations = {
       },
       'viniela-digital-agency': {
         aboutTitle: '在数字时代塑造有影响力的品牌形象',
+        heroButtonText: "探索我们的服务",
+        heroButtonUrl: "https://artiqstudio.id/",
         aboutContent:
           'Viniela 数字机构是您建立强大品牌形象和迷人数字体验的战略合作伙伴。我们将市场洞察力与卓越的创意相结合，创造出不仅视觉上美观，而且能推动业务增长的解决方案。',
         services: [
@@ -3962,6 +4038,8 @@ const translations = {
       },
       'viniela-medis': {
         aboutTitle: '高端医疗服务，直达您家',
+        heroButtonText: "获取服务",
+        heroButtonUrl: "https://christimedicalhomecare.viniela.id/",
         aboutContent:
           'Viniela医疗由SCCR Indonesia的代表医生支持，将专属医疗服务直接带到您舒适的家中。我们深知隐私和舒适的重要性，确保您的健康得到个性化和专业的处理，无需离家。',
         services: [
@@ -4024,6 +4102,8 @@ const translations = {
       },
       'viniela-otomotif': {
         aboutTitle: '综合汽车解决方案：买卖与租赁',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela汽车是您所有车辆需求的信赖伙伴。我们为买卖新车和二手车提供一个简单、透明和可靠的平台，并为个人和商业需求提供灵活的车辆租赁服务。',
         services: [
@@ -4096,6 +4176,8 @@ const translations = {
       },
       'viniela-komoditas': {
         aboutTitle: '连接自然资源与全球市场',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           'Viniela商品在自然资源供应链中扮演着至关重要的角色。我们促进原材料所有者与全球买家之间的贸易，并提供关键的后勤支持，从租赁运输船只到供应备件。',
         services: [
@@ -4158,6 +4240,8 @@ const translations = {
       },
       default: {
         aboutTitle: '卓越的每一项服务',
+        heroButtonText: "联系我们",
+        heroButtonUrl: "/contact",
         aboutContent:
           '我们的部门致力于在其领域提供最高质量的服务。我们将行业专业知识与以客户为中心的方法相结合，以实现卓越的成果。我们的专业团队致力于创新、诚信和您的满意。',
         services: [

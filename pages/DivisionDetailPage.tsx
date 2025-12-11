@@ -34,6 +34,13 @@ const SectionHeader: React.FC<{ title: string; subtitle?: string }> = ({ title, 
     </div>
 );
 
+// --- HELPER ---
+const ensureProtocol = (url: string | null | undefined) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://')) return url;
+    return `https://${url}`;
+};
+
 // --- MAIN PAGE COMPONENT ---
 
 const DivisionDetailPage: React.FC = () => {
@@ -74,8 +81,31 @@ const DivisionDetailPage: React.FC = () => {
     const divisionDescription = getTranslation(division.description, t);
 
     // Check for dynamic hero button data
-    const heroButtonText = 'heroButtonText' in divisionContent ? (divisionContent as any).heroButtonText : null;
-    const heroButtonUrl = 'heroButtonUrl' in divisionContent ? (divisionContent as any).heroButtonUrl : null;
+    let heroButtonText = 'heroButtonText' in divisionContent ? (divisionContent as any).heroButtonText : null;
+    let heroButtonUrl = 'heroButtonUrl' in divisionContent ? (divisionContent as any).heroButtonUrl : null;
+
+    let isExternalLink = false;
+
+    if (heroButtonUrl) {
+        // If it starts with /, it is an internal link (e.g. "/contact")
+        if (heroButtonUrl.startsWith('/')) {
+            isExternalLink = false;
+        } else {
+            // Otherwise assume external (e.g. "google.com" or "https://...")
+            isExternalLink = true;
+        }
+    } else {
+        // Fallback if no URL is provided in translation
+        heroButtonUrl = "/contact";
+        isExternalLink = false;
+    }
+
+    if (!heroButtonText) {
+        heroButtonText = isExternalLink ? (t.divisionDetail as any).visitWebsite : t.divisionDetail.ctaButton;
+    }
+    
+    // Only ensure protocol for external links
+    const finalHeroButtonUrl = isExternalLink ? ensureProtocol(heroButtonUrl) : heroButtonUrl;
 
     return (
         <div className="bg-white">
@@ -91,16 +121,26 @@ const DivisionDetailPage: React.FC = () => {
                     <p className="text-lg md:text-xl max-w-3xl mx-auto mt-4 text-gray-300">{divisionDescription}</p>
                     
                     {/* Dynamic Hero Button */}
-                    {heroButtonText && heroButtonUrl && (
-                        <a
-                            href={heroButtonUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-8 inline-block px-8 py-3 bg-viniela-gold text-white font-semibold rounded-lg shadow-md hover:bg-viniela-gold-dark transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
-                            style={{ animationDelay: '0.2s' }}
-                        >
-                            {heroButtonText} <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-sm"></i>
-                        </a>
+                    {heroButtonText && finalHeroButtonUrl && (
+                        isExternalLink ? (
+                            <a
+                                href={finalHeroButtonUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-8 inline-block px-8 py-3 bg-viniela-gold text-white font-semibold rounded-lg shadow-md hover:bg-viniela-gold-dark transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
+                                style={{ animationDelay: '0.2s' }}
+                            >
+                                {heroButtonText} <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                            </a>
+                        ) : (
+                            <Link
+                                to={finalHeroButtonUrl}
+                                className="mt-8 inline-block px-8 py-3 bg-viniela-gold text-white font-semibold rounded-lg shadow-md hover:bg-viniela-gold-dark transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
+                                style={{ animationDelay: '0.2s' }}
+                            >
+                                {heroButtonText}
+                            </Link>
+                        )
                     )}
                 </div>
             </header>
