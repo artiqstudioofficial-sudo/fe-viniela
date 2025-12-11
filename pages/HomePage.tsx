@@ -80,8 +80,7 @@ const HomePage: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://picsum.photos/seed/modern-glass-building/1920/1080')",
+            backgroundImage: "url('./assets/images/vinielaheroutama.webp')",
           }}
         ></div>
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
@@ -131,11 +130,12 @@ const HomePage: React.FC = () => {
               {/* 16:9 Aspect Ratio */}
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/6bTu_y4-p3E?rel=0&showinfo=0&modestbranding=1"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="Viniela Group Profile Video"
+                src="https://www.youtube.com/embed/Xw8x02UXEcA?si=GWdgH8DyNyGqAC0T"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
               ></iframe>
             </div>
           </div>
