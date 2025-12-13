@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useTranslations } from "../contexts/i18n";
-import { divisions } from "../constants";
-import { Language } from "../types";
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { divisions } from '../constants';
+import { useTranslations } from '../contexts/i18n';
+import { Language } from '../types';
 // FIX: Import translations object to display language names in the dropdown.
-import translations from "../data/translations";
+import translations from '../data/translations';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,27 +23,21 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        divisionsRef.current &&
-        !divisionsRef.current.contains(event.target as Node)
-      ) {
+      if (divisionsRef.current && !divisionsRef.current.contains(event.target as Node)) {
         setDivisionsOpen(false);
       }
-      if (
-        languageRef.current &&
-        !languageRef.current.contains(event.target as Node)
-      ) {
+      if (languageRef.current && !languageRef.current.contains(event.target as Node)) {
         setLanguageOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -54,11 +48,11 @@ const Navbar: React.FC = () => {
   }, [isMobileMenuOpen]);
 
   const getTranslation = (key: string) => {
-    const keys = key.split(".");
+    const keys = key.split('.');
     let result: any = t;
     for (const k of keys) {
       result = result?.[k];
-      if (typeof result === "undefined") return key;
+      if (typeof result === 'undefined') return key;
     }
     return result;
   };
@@ -69,24 +63,20 @@ const Navbar: React.FC = () => {
     onClick?: () => void;
   }> = ({ to, children, onClick }) => {
     let isActive = false;
-    const [path, hash] = to.split("#");
+    const [path, hash] = to.split('#');
 
     if (hash) {
       // Hash link like "/#news" or just "#news"
-      const targetPath = path || "/";
-      isActive =
-        location.pathname === targetPath && location.hash === `#${hash}`;
+      const targetPath = path || '/';
+      isActive = location.pathname === targetPath && location.hash === `#${hash}`;
     } else {
       // Path link like "/" or "/about"
-      if (to === "/") {
+      if (to === '/') {
         // Home is only active if there is no hash
-        isActive =
-          location.pathname === "/" &&
-          (!location.hash || location.hash === "#");
+        isActive = location.pathname === '/' && (!location.hash || location.hash === '#');
       } else {
         // For other paths, it should be an exact match, or for /news, it should also be active on /news/:id
-        isActive =
-          location.pathname === to || location.pathname.startsWith(`${to}/`);
+        isActive = location.pathname === to || location.pathname.startsWith(`${to}/`);
       }
     }
 
@@ -95,9 +85,7 @@ const Navbar: React.FC = () => {
         to={to}
         onClick={onClick}
         className={`px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-          isActive
-            ? "text-viniela-gold"
-            : "text-viniela-gray hover:text-viniela-gold"
+          isActive ? 'text-viniela-gold' : 'text-viniela-gray hover:text-viniela-gold'
         }`}
       >
         {children}
@@ -108,19 +96,13 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`bg-white/95 backdrop-blur-lg sticky top-0 z-50 transition-shadow duration-300 ${
-        isScrolled ? "shadow-lg" : "shadow-md"
+        isScrolled ? 'shadow-lg' : 'shadow-md'
       }`}
     >
       <div className="container mx-auto px-6 py-3 relative">
         <div className="flex items-center justify-between">
-          <Link
-            to="/"
-            className="text-2xl font-bold text-viniela-dark tracking-wider"
-          >
-            <img
-              src={"/assets/logo/logo.jpeg"}
-              className="w-full h-16 object-cover"
-            />
+          <Link to="/" className="text-2xl font-bold text-viniela-dark tracking-wider">
+            <img src={'/assets/logo/logo.jpeg'} className="w-full h-16 object-cover" />
           </Link>
 
           {/* Desktop Menu */}
@@ -136,7 +118,7 @@ const Navbar: React.FC = () => {
                 {t.nav.divisions}
                 <i
                   className={`fa-solid fa-chevron-down w-5 h-5 ml-1.5 text-gray-400 transition-transform duration-300 ${
-                    isDivisionsOpen ? "rotate-180" : ""
+                    isDivisionsOpen ? 'rotate-180' : ''
                   }`}
                   aria-hidden="true"
                 ></i>
@@ -151,9 +133,7 @@ const Navbar: React.FC = () => {
                       className="flex items-center px-4 py-3 text-sm text-viniela-gray hover:bg-viniela-silver hover:text-viniela-dark transition-colors duration-200 border-b border-gray-50 last:border-0"
                     >
                       <division.Icon className="w-4 h-4 mr-3 flex-shrink-0 text-viniela-gold" />
-                      <span className="truncate">
-                        {getTranslation(division.name)}
-                      </span>
+                      <span className="truncate">{getTranslation(division.name)}</span>
                     </Link>
                   ))}
                 </div>
@@ -162,7 +142,7 @@ const Navbar: React.FC = () => {
             <NavLink to="/news">{t.nav.news}</NavLink>
             <NavLink to="/careers">{t.nav.careers}</NavLink>
             <NavLink to="/contact">{t.nav.contact}</NavLink>
-            <NavLink to="/admin">{t.nav.admin}</NavLink>
+            {/* <NavLink to="/admin">{t.nav.admin}</NavLink> */}
           </div>
 
           <div className="flex items-center">
@@ -175,7 +155,7 @@ const Navbar: React.FC = () => {
                 <span className="text-sm font-medium">{t.langName}</span>
                 <i
                   className={`fa-solid fa-chevron-down w-5 h-5 text-gray-400 transition-transform duration-300 ${
-                    isLanguageOpen ? "rotate-180" : ""
+                    isLanguageOpen ? 'rotate-180' : ''
                   }`}
                   aria-hidden="true"
                 ></i>
@@ -183,7 +163,7 @@ const Navbar: React.FC = () => {
               {isLanguageOpen && (
                 <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-lg shadow-xl p-2 z-10 animate-fade-in-down">
                   <div className="space-y-1">
-                    {(["id", "en", "cn"] as Language[]).map((lang) => (
+                    {(['id', 'en', 'cn'] as Language[]).map((lang) => (
                       <button
                         key={lang}
                         onClick={() => {
@@ -192,8 +172,8 @@ const Navbar: React.FC = () => {
                         }}
                         className={`w-full flex items-center text-left px-3 py-2 text-sm rounded-md transition-colors duration-200 ${
                           language === lang
-                            ? "bg-viniela-gold text-white"
-                            : "text-viniela-gray hover:bg-viniela-silver"
+                            ? 'bg-viniela-gold text-white'
+                            : 'text-viniela-gray hover:bg-viniela-silver'
                         }`}
                       >
                         {translations[lang].langName}
@@ -211,7 +191,7 @@ const Navbar: React.FC = () => {
             >
               <i
                 className={`fa-solid ${
-                  isMobileMenuOpen ? "fa-xmark" : "fa-bars"
+                  isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'
                 } text-viniela-gray text-2xl w-6 h-6 flex items-center justify-center`}
                 aria-hidden="true"
               ></i>
@@ -227,9 +207,9 @@ const Navbar: React.FC = () => {
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                  location.pathname === "/" && !location.hash
-                    ? "text-viniela-gold bg-viniela-silver"
-                    : "text-viniela-gray hover:bg-viniela-silver"
+                  location.pathname === '/' && !location.hash
+                    ? 'text-viniela-gold bg-viniela-silver'
+                    : 'text-viniela-gray hover:bg-viniela-silver'
                 }`}
               >
                 {t.nav.home}
@@ -238,9 +218,9 @@ const Navbar: React.FC = () => {
                 to="/about"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                  location.pathname === "/about"
-                    ? "text-viniela-gold bg-viniela-silver"
-                    : "text-viniela-gray hover:bg-viniela-silver"
+                  location.pathname === '/about'
+                    ? 'text-viniela-gold bg-viniela-silver'
+                    : 'text-viniela-gray hover:bg-viniela-silver'
                 }`}
               >
                 {t.nav.about}
@@ -249,9 +229,9 @@ const Navbar: React.FC = () => {
                 to="/team"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                  location.pathname === "/team"
-                    ? "text-viniela-gold bg-viniela-silver"
-                    : "text-viniela-gray hover:bg-viniela-silver"
+                  location.pathname === '/team'
+                    ? 'text-viniela-gold bg-viniela-silver'
+                    : 'text-viniela-gray hover:bg-viniela-silver'
                 }`}
               >
                 {t.nav.team}
@@ -262,14 +242,14 @@ const Navbar: React.FC = () => {
                   onClick={() => setMobileDivisionsOpen(!isMobileDivisionsOpen)}
                   className={`flex items-center justify-between w-full px-4 py-3 text-base font-medium text-left rounded-lg transition-colors ${
                     isMobileDivisionsOpen
-                      ? "bg-viniela-silver text-viniela-dark"
-                      : "text-viniela-gray hover:bg-viniela-silver"
+                      ? 'bg-viniela-silver text-viniela-dark'
+                      : 'text-viniela-gray hover:bg-viniela-silver'
                   }`}
                 >
                   <span>{t.nav.divisions}</span>
                   <i
                     className={`fa-solid fa-chevron-down w-5 h-5 transition-transform duration-300 ${
-                      isMobileDivisionsOpen ? "rotate-180" : ""
+                      isMobileDivisionsOpen ? 'rotate-180' : ''
                     }`}
                     aria-hidden="true"
                   ></i>
@@ -285,9 +265,7 @@ const Navbar: React.FC = () => {
                         className="flex items-center py-3 px-3 text-sm text-viniela-gray hover:text-viniela-gold rounded-md transition-colors duration-200"
                       >
                         <division.Icon className="w-4 h-4 mr-3 flex-shrink-0" />
-                        <span className="truncate">
-                          {getTranslation(division.name)}
-                        </span>
+                        <span className="truncate">{getTranslation(division.name)}</span>
                       </Link>
                     ))}
                   </div>
@@ -298,9 +276,9 @@ const Navbar: React.FC = () => {
                 to="/news"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                  location.pathname.startsWith("/news")
-                    ? "text-viniela-gold bg-viniela-silver"
-                    : "text-viniela-gray hover:bg-viniela-silver"
+                  location.pathname.startsWith('/news')
+                    ? 'text-viniela-gold bg-viniela-silver'
+                    : 'text-viniela-gray hover:bg-viniela-silver'
                 }`}
               >
                 {t.nav.news}
@@ -309,9 +287,9 @@ const Navbar: React.FC = () => {
                 to="/careers"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                  location.pathname.startsWith("/careers")
-                    ? "text-viniela-gold bg-viniela-silver"
-                    : "text-viniela-gray hover:bg-viniela-silver"
+                  location.pathname.startsWith('/careers')
+                    ? 'text-viniela-gold bg-viniela-silver'
+                    : 'text-viniela-gray hover:bg-viniela-silver'
                 }`}
               >
                 {t.nav.careers}
@@ -320,9 +298,9 @@ const Navbar: React.FC = () => {
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                  location.pathname === "/contact"
-                    ? "text-viniela-gold bg-viniela-silver"
-                    : "text-viniela-gray hover:bg-viniela-silver"
+                  location.pathname === '/contact'
+                    ? 'text-viniela-gold bg-viniela-silver'
+                    : 'text-viniela-gray hover:bg-viniela-silver'
                 }`}
               >
                 {t.nav.contact}
@@ -331,9 +309,9 @@ const Navbar: React.FC = () => {
                 to="/admin"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                  location.pathname === "/admin"
-                    ? "text-viniela-gold bg-viniela-silver"
-                    : "text-viniela-gray hover:bg-viniela-silver"
+                  location.pathname === '/admin'
+                    ? 'text-viniela-gold bg-viniela-silver'
+                    : 'text-viniela-gray hover:bg-viniela-silver'
                 }`}
               >
                 {t.nav.admin}
@@ -347,22 +325,19 @@ const Navbar: React.FC = () => {
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-left text-viniela-gray hover:bg-viniela-silver rounded-lg"
                 >
                   <span className="flex items-center">
-                    <i
-                      className="fa-solid fa-globe w-5 h-5 mr-3"
-                      aria-hidden="true"
-                    ></i>
+                    <i className="fa-solid fa-globe w-5 h-5 mr-3" aria-hidden="true"></i>
                     <span>{t.nav.language}</span>
                   </span>
                   <i
                     className={`fa-solid fa-chevron-down w-5 h-5 transition-transform duration-300 ${
-                      isMobileLanguageOpen ? "rotate-180" : ""
+                      isMobileLanguageOpen ? 'rotate-180' : ''
                     }`}
                     aria-hidden="true"
                   ></i>
                 </button>
                 {isMobileLanguageOpen && (
                   <div className="pl-4 mt-1 space-y-1">
-                    {(["id", "en", "cn"] as Language[]).map((lang) => (
+                    {(['id', 'en', 'cn'] as Language[]).map((lang) => (
                       <button
                         key={lang}
                         onClick={() => {
@@ -371,8 +346,8 @@ const Navbar: React.FC = () => {
                         }}
                         className={`w-full text-left py-2 px-3 text-sm rounded-md transition-colors duration-200 ${
                           language === lang
-                            ? "bg-viniela-gold text-white font-semibold"
-                            : "text-viniela-gray hover:bg-viniela-silver"
+                            ? 'bg-viniela-gold text-white font-semibold'
+                            : 'text-viniela-gray hover:bg-viniela-silver'
                         }`}
                       >
                         {translations[lang].langName}
@@ -419,9 +394,9 @@ const css = `
     background: #a8a8a8;
   }
 `;
-const style = document.createElement("style");
-if (!document.head.querySelector("style#fade-in-down-animation")) {
-  style.id = "fade-in-down-animation";
+const style = document.createElement('style');
+if (!document.head.querySelector('style#fade-in-down-animation')) {
+  style.id = 'fade-in-down-animation';
   style.innerHTML = css;
   document.head.appendChild(style);
 }

@@ -25,7 +25,8 @@ const LoginPage: React.FC = () => {
     setError('');
 
     // Simple hardcoded credentials
-    if (username === 'admin' && password === 'password') {
+    // password
+    if (username === 'admin' && password === 'DHtGGtfCHVsXFTe6') {
       sessionStorage.setItem('viniela-auth', 'true');
       navigate(from, { replace: true });
     } else {
