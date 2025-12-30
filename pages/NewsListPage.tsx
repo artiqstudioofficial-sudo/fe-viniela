@@ -61,11 +61,11 @@ const NewsListPage: React.FC = () => {
 
   // --- SEO / meta tags ---
   useEffect(() => {
-    const pageTitle = `${t.newsList.title} | VINIELA Group`;
+    const pageTitle = `${t.newsList.title} | VINIELA`;
     document.title = pageTitle;
 
     const defaultDescription =
-      'A clean and modern corporate website for VINIELA Group, featuring company information, divisions, news, and a content management system for news articles. The site is multi-lingual and fully responsive.';
+      'A clean and modern corporate website for VINIELA, featuring company information, divisions, news, and a content management system for news articles. The site is multi-lingual and fully responsive.';
 
     let metaDescriptionTag = document.querySelector('meta[name="description"]');
     if (metaDescriptionTag) {
@@ -73,7 +73,7 @@ const NewsListPage: React.FC = () => {
     }
 
     const keywords = [
-      'VINIELA Group',
+      'VINIELA',
       t.nav.news,
       ...newsCategories.map((cat) => t.admin.categories[cat]),
     ].join(', ');
@@ -87,7 +87,7 @@ const NewsListPage: React.FC = () => {
     metaKeywordsTag.setAttribute('content', keywords);
 
     return () => {
-      document.title = 'VINIELA Group';
+      document.title = 'VINIELA';
       if (metaDescriptionTag) {
         metaDescriptionTag.setAttribute('content', defaultDescription);
       }

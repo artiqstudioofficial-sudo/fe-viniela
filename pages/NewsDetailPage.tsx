@@ -118,7 +118,7 @@ const NewsDetailPage: React.FC = () => {
   // === SEO / meta tags ===
   useEffect(() => {
     const defaultDescription =
-      'A clean and modern corporate website for VINIELA Group, featuring company information, divisions, news, and a content management system for news articles. The site is multi-lingual and fully responsive.';
+      'A clean and modern corporate website for VINIELA, featuring company information, divisions, news, and a content management system for news articles. The site is multi-lingual and fully responsive.';
 
     let metaDescriptionTag = document.querySelector('meta[name="description"]');
     if (!metaDescriptionTag) {
@@ -138,7 +138,7 @@ const NewsDetailPage: React.FC = () => {
       const titleForLang = article.title[language] || article.title.en;
       const contentForLang = article.content[language] || article.content.en;
 
-      const pageTitle = `${titleForLang} | VINIELA Group`;
+      const pageTitle = `${titleForLang} | VINIELA`;
       document.title = pageTitle;
 
       const plainContent = contentForLang
@@ -150,7 +150,7 @@ const NewsDetailPage: React.FC = () => {
       metaDescriptionTag.setAttribute('content', pageDescription);
 
       const keywords = [
-        'VINIELA Group',
+        'VINIELA',
         t.admin.categories[article.category],
         ...titleForLang.split(' ').slice(0, 5),
       ].join(', ');
@@ -162,8 +162,8 @@ const NewsDetailPage: React.FC = () => {
         headline: titleForLang,
         image: article.imageUrls,
         datePublished: new Date(article.date).toISOString(),
-        author: { '@type': 'Organization', name: 'VINIELA Group' },
-        publisher: { '@type': 'Organization', name: 'VINIELA Group' },
+        author: { '@type': 'Organization', name: 'VINIELA' },
+        publisher: { '@type': 'Organization', name: 'VINIELA' },
         description: pageDescription,
       };
 
@@ -177,7 +177,7 @@ const NewsDetailPage: React.FC = () => {
     }
 
     return () => {
-      document.title = 'VINIELA Group';
+      document.title = 'VINIELA';
       document.getElementById('news-article-json-ld')?.remove();
       if (metaDescriptionTag) {
         metaDescriptionTag.setAttribute('content', defaultDescription);
