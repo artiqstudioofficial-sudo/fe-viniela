@@ -17,7 +17,6 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        // Ambil 3 berita terbaru dari API
         const res = await listNews(1, 3);
         setLatestNews(res.data);
       } catch (err) {
@@ -25,7 +24,6 @@ const HomePage: React.FC = () => {
         setLatestNews([]);
       }
 
-      // Ambil partners dari backend via partnerService
       try {
         const partnersData = await partnerService.getPartners();
         setPartners(partnersData);
@@ -83,7 +81,10 @@ const HomePage: React.FC = () => {
         ></div>
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 animate-fade-in-down">
+          <h1
+            className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 animate-fade-in-down"
+            style={{ whiteSpace: 'pre-line' }}
+          >
             {t.home.heroTitle}
           </h1>
           <p
@@ -92,13 +93,13 @@ const HomePage: React.FC = () => {
           >
             {t.home.heroSubtitle}
           </p>
-          <a
+          {/* <a
             href="#divisions"
             className="mt-8 inline-block px-8 py-3 bg-viniela-gold font-semibold rounded-lg shadow-md hover:bg-viniela-gold-dark transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
             style={{ animationDelay: '0.6s' }}
           >
             {t.home.heroButton}
-          </a>
+          </a> */}
         </div>
       </section>
 

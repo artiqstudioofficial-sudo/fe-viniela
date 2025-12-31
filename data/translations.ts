@@ -13,7 +13,7 @@ const translations = {
       language: 'Bahasa',
     },
     home: {
-      heroTitle: 'VINIELA: Inovasi, Integritas, Keunggulan.',
+      heroTitle: 'VINIELA \n Inovasi, Integritas, Keunggulan.',
       heroSubtitle:
         'Membangun masa depan melalui beragam solusi bisnis yang didedikasikan untuk kesuksesan Anda.',
       heroButton: 'Jelajahi Divisi Kami',
@@ -69,7 +69,7 @@ const translations = {
       design: 'Viniela Design',
       interior: 'Viniela Interior',
       contractor: 'Viniela Kontraktor',
-      homeService: 'Viniela Home & Service',
+      homeService: 'Viniela Home Service',
       homeDecor: 'Viniela Home & Dekor',
       property: 'Viniela Property',
       managementProperty: 'Viniela Management Property',
