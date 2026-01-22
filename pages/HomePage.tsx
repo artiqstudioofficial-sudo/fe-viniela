@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import CTA from '../components/CTA';
-import NewsCard from '../components/NewsCard';
-import { useTranslations } from '../contexts/i18n';
-import { divisions } from '../data/constants';
-import useOnScreen from '../hooks/useOnScreen';
-import { listNews } from '../services/newsService';
-import * as partnerService from '../services/partnerService';
-import { Division, NewsArticle, Partner } from '../types';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import CTA from "../components/CTA";
+import NewsCard from "../components/NewsCard";
+import { useTranslations } from "../contexts/i18n";
+import { divisions } from "../data/constants";
+import useOnScreen from "../hooks/useOnScreen";
+import { listNews } from "../services/newsService";
+import * as partnerService from "../services/partnerService";
+import { Division, NewsArticle, Partner } from "../types";
 
 const HomePage: React.FC = () => {
   const { t, language } = useTranslations();
@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
         const res = await listNews(1, 3);
         setLatestNews(res.data);
       } catch (err) {
-        console.error('Failed to load news:', err);
+        console.error("Failed to load news:", err);
         setLatestNews([]);
       }
 
@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
         const partnersData = await partnerService.getPartners();
         setPartners(partnersData);
       } catch (err) {
-        console.error('Failed to load partners:', err);
+        console.error("Failed to load partners:", err);
         setPartners([]);
       }
     };
@@ -44,11 +44,11 @@ const HomePage: React.FC = () => {
 
   // Helper to get nested translation
   const getTranslation = (key: string) => {
-    const keys = key.split('.');
+    const keys = key.split(".");
     let result: any = t;
     for (const k of keys) {
       result = result?.[k];
-      if (typeof result === 'undefined') return key;
+      if (typeof result === "undefined") return key;
     }
     return result;
   };
@@ -62,7 +62,9 @@ const HomePage: React.FC = () => {
       <div className="bg-viniela-gold text-white p-4 rounded-full mb-4 transition-all duration-300 group-hover:scale-110">
         <division.Icon className="w-8 h-8" />
       </div>
-      <h3 className="font-semibold text-viniela-dark">{getTranslation(division.name)}</h3>
+      <h3 className="font-semibold text-viniela-dark">
+        {getTranslation(division.name)}
+      </h3>
       <p className="text-sm text-viniela-gray mt-2 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-300">
         {getTranslation(division.description)}
       </p>
@@ -83,13 +85,13 @@ const HomePage: React.FC = () => {
         <div className="relative z-10 text-center px-4">
           <h1
             className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 animate-fade-in-down"
-            style={{ whiteSpace: 'pre-line' }}
+            style={{ whiteSpace: "pre-line" }}
           >
             {t.home.heroTitle}
           </h1>
           <p
             className="text-lg md:text-xl max-w-3xl mx-auto animate-fade-in-up"
-            style={{ animationDelay: '0.3s' }}
+            style={{ animationDelay: "0.3s" }}
           >
             {t.home.heroSubtitle}
           </p>
@@ -107,7 +109,9 @@ const HomePage: React.FC = () => {
       <section
         ref={aboutRef}
         className={`py-20 bg-white transition-all duration-700 ease-out ${
-          isAboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isAboutVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -116,7 +120,7 @@ const HomePage: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-viniela-dark">
                 {t.home.aboutSectionTitle}
               </h2>
-              <p className="mt-4 max-w-xl mx-auto md:mx-0 text-lg text-viniela-gray">
+              <p className="mt-4 max-w-xl mx-auto md:mx-0 text-lg text-viniela-gray whitespace-pre-line">
                 {t.home.aboutSectionContent}
               </p>
             </div>
@@ -143,7 +147,9 @@ const HomePage: React.FC = () => {
         ref={divisionsRef}
         id="divisions"
         className={`py-20 bg-viniela-silver transition-all duration-700 ease-out ${
-          isDivisionsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isDivisionsVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -160,7 +166,9 @@ const HomePage: React.FC = () => {
       <section
         ref={partnersRef}
         className={`py-16 bg-white transition-all duration-700 ease-out ${
-          isPartnersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isPartnersVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -193,7 +201,9 @@ const HomePage: React.FC = () => {
         ref={newsRef}
         id="news"
         className={`py-20 bg-viniela-silver transition-all duration-700 ease-out ${
-          isNewsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          isNewsVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-5"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -202,7 +212,11 @@ const HomePage: React.FC = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {latestNews.map((article) => (
-              <Link key={article.id} to={`/news/${article.id}`} className="block">
+              <Link
+                key={article.id}
+                to={`/news/${article.id}`}
+                className="block"
+              >
                 <NewsCard
                   article={article}
                   lang={language}
