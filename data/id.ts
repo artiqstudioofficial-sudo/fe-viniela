@@ -129,7 +129,7 @@ export const id = {
     "viniela-design": {
       aboutTitle: "Merancang Konsep, Menyiapkan Visi Ruang",
       heroButtonText: "Hubungi Kami",
-      heroButtonUrl: "/contact",
+      heroButtonUrl: "https://interior.viniela.id",
       ctaTitle: "Mulai Desain Ruang Impian Anda",
       ctaButton: "Dapatkan Konsultasi Desain",
       aboutContent:
@@ -200,7 +200,7 @@ export const id = {
     "viniela-interior": {
       aboutTitle: "Membangun Visi: Eksekusi & Realisasi Interior",
       heroButtonText: "Hubungi Kami",
-      heroButtonUrl: "/contact",
+      heroButtonUrl: "https://interior.viniela.id",
       ctaTitle: "Wujudkan Interior Anda dengan Eksekusi Presisi",
       ctaButton: "Jadwalkan Survei & Konsultasi Interior",
       aboutContent:
@@ -506,7 +506,7 @@ export const id = {
     "viniela-home-decor": {
       aboutTitle: "Seni Menata Ruang: Solusi Dekorasi & Furnitur",
       heroButtonText: "Dapatkan Layanan",
-      heroButtonUrl: "/contact",
+      heroButtonUrl: "https://interior.viniela.id",
       ctaTitle: "Sempurnakan Tampilan Rumah Anda",
       ctaButton: "Konsultasi Dekorasi & Furnitur",
       aboutContent:
