@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
-import CTA from '../components/CTA';
-import { useTranslations } from '../contexts/i18n';
-import { divisions } from '../data/constants';
-import useOnScreen from '../hooks/useOnScreen';
+import React, { useEffect } from "react";
+import { Link, Navigate, useParams } from "react-router-dom";
+import CTA from "../components/CTA";
+import { useTranslations } from "../contexts/i18n";
+import { divisions } from "../data/constants";
+import useOnScreen from "../hooks/useOnScreen";
 
 // --- CHILD COMPONENTS ---
 
@@ -11,13 +11,13 @@ const Section: React.FC<{
   children: React.ReactNode;
   className?: string;
   refHook: ReturnType<typeof useOnScreen>;
-}> = ({ children, className = '', refHook }) => {
+}> = ({ children, className = "", refHook }) => {
   const [ref, isVisible] = refHook;
   return (
     <section
       ref={ref}
       className={`py-20 transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       } ${className}`}
     >
       <div className="container mx-auto px-6">{children}</div>
@@ -25,9 +25,14 @@ const Section: React.FC<{
   );
 };
 
-const SectionHeader: React.FC<{ title: string; subtitle?: string }> = ({ title, subtitle }) => (
+const SectionHeader: React.FC<{ title: string; subtitle?: string }> = ({
+  title,
+  subtitle,
+}) => (
   <div className="text-center max-w-3xl mx-auto mb-12">
-    <h2 className="text-3xl md:text-4xl font-bold text-viniela-dark">{title}</h2>
+    <h2 className="text-3xl md:text-4xl font-bold text-viniela-dark">
+      {title}
+    </h2>
     {subtitle && <p className="mt-4 text-lg text-viniela-gray">{subtitle}</p>}
   </div>
 );
@@ -35,8 +40,8 @@ const SectionHeader: React.FC<{ title: string; subtitle?: string }> = ({ title, 
 // --- HELPER ---
 
 const ensureProtocol = (url: string | null | undefined) => {
-  if (!url) return '';
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
   return `https://${url}`;
 };
 
@@ -53,18 +58,19 @@ const DivisionDetailPage: React.FC = () => {
   }, [slug]);
 
   const getTranslation = (key: string, data: any) => {
-    const keys = key.split('.');
+    const keys = key.split(".");
     let result = data;
     for (const k of keys) {
       result = result?.[k];
-      if (typeof result === 'undefined') return key;
+      if (typeof result === "undefined") return key;
     }
     return result;
   };
 
   // Get division-specific content, or fallback to default
   const divisionContent =
-    t.divisionContent[slug as keyof typeof t.divisionContent] || t.divisionContent.default;
+    t.divisionContent[slug as keyof typeof t.divisionContent] ||
+    t.divisionContent.default;
 
   // Animation Refs
   const aboutRef = useOnScreen({ threshold: 0.2, triggerOnce: true });
@@ -81,20 +87,24 @@ const DivisionDetailPage: React.FC = () => {
 
   // --- Hero Button Logic ---
   let heroButtonText =
-    'heroButtonText' in divisionContent ? (divisionContent as any).heroButtonText : null;
+    "heroButtonText" in divisionContent
+      ? (divisionContent as any).heroButtonText
+      : null;
   let heroButtonUrl =
-    'heroButtonUrl' in divisionContent ? (divisionContent as any).heroButtonUrl : null;
+    "heroButtonUrl" in divisionContent
+      ? (divisionContent as any).heroButtonUrl
+      : null;
 
   let isExternalLink = false;
 
   if (heroButtonUrl) {
-    if (heroButtonUrl.startsWith('/')) {
+    if (heroButtonUrl.startsWith("/")) {
       isExternalLink = false;
     } else {
       isExternalLink = true;
     }
   } else {
-    heroButtonUrl = '/contact';
+    heroButtonUrl = "/contact";
     isExternalLink = false;
   }
 
@@ -104,7 +114,9 @@ const DivisionDetailPage: React.FC = () => {
       : t.divisionDetail.ctaButton;
   }
 
-  const finalHeroButtonUrl = isExternalLink ? ensureProtocol(heroButtonUrl) : heroButtonUrl;
+  const finalHeroButtonUrl = isExternalLink
+    ? ensureProtocol(heroButtonUrl)
+    : heroButtonUrl;
 
   // ===========================================================
   // MAPPING BERDASARKAN ROUTE (slug) -> FILE NYATA DI /assets/images
@@ -116,57 +128,61 @@ const DivisionDetailPage: React.FC = () => {
       about: string;
     }
   > = {
-    'viniela-agency': {
-      hero: '/assets/images/agency/heroagency.webp',
-      about: '/assets/images/agency/aboutagency.webp',
+    "viniela-agency": {
+      hero: "/assets/images/agency/heroagency.webp",
+      about: "/assets/images/agency/aboutagency.webp",
     },
-    'viniela-komoditas': {
-      hero: '/assets/images/comoditas/herocomoditas.webp',
-      about: '/assets/images/comoditas/aboutcomoditas.webp',
+    "viniela-komoditas": {
+      hero: "/assets/images/comoditas/herocomoditas.webp",
+      about: "/assets/images/comoditas/aboutcomoditas.webp",
     },
-    'viniela-interior': {
-      hero: '/assets/images/halamaninterior/herointerior.webp',
-      about: '/assets/images/halamaninterior/aboutinterior.webp',
+    "viniela-interior": {
+      hero: "/assets/images/halamaninterior/herointerior.webp",
+      about: "/assets/images/halamaninterior/aboutinterior.webp",
     },
-    'viniela-home-service': {
-      hero: '/assets/images/homesservice/herohomeservice.webp',
-      about: '/assets/images/homesservice/abouthomeservice.webp',
+    "viniela-home-service": {
+      hero: "/assets/images/homesservice/herohomeservice.webp",
+      about: "/assets/images/homesservice/abouthomeservice.webp",
     },
-    'viniela-kontraktor': {
-      hero: '/assets/images/kontraktor/kontraktorhero.webp',
-      about: '/assets/images/kontraktor/aboutkontraktor.webp',
+    "viniela-kontraktor": {
+      hero: "/assets/images/kontraktor/kontraktorhero.webp",
+      about: "/assets/images/kontraktor/aboutkontraktor.webp",
     },
-    'viniela-realestate': {
-      hero: '/assets/images/realestate/herorealestate.webp',
-      about: '/assets/images/realestate/aboutrealestate.webp',
+    "viniela-real-estate": {
+      hero: "/assets/images/realestate/herorealestate.webp",
+      about: "/assets/images/realestate/aboutrealestate.webp",
     },
-    'viniela-medis': {
-      hero: '/assets/images/medical/heromedical.webp',
-      about: '/assets/images/medical/aboutmedical.webp',
+    "viniela-medis": {
+      hero: "/assets/images/medical/heromedical.webp",
+      about: "/assets/images/medical/aboutmedical.webp",
     },
-    'viniela-otomotif': {
-      hero: '/assets/images/otomotive/otomotivehero.webp',
-      about: '/assets/images/otomotive/aboutotomotive.webp',
+    "viniela-otomotif": {
+      hero: "/assets/images/otomotive/otomotivehero.webp",
+      about: "/assets/images/otomotive/aboutotomotive.webp",
     },
-    'viniela-legalitas': {
-      hero: '/assets/images/legalitas/herolegalitas.webp',
-      about: '/assets/images/legalitas/aboutlegalitas.webp',
+    "viniela-legalitas": {
+      hero: "/assets/images/legalitas/herolegalitas.webp",
+      about: "/assets/images/legalitas/aboutlegalitas.webp",
     },
-    'viniela-pengacara': {
-      hero: '/assets/images/lawyer/herolawyer.webp',
-      about: '/assets/images/lawyer/aboutlawyer.webp',
+    "viniela-konsultan-bisnis": {
+      hero: "/assets/images/legalitas/herolegalitas.webp",
+      about: "/assets/images/legalitas/aboutlegalitas.webp",
     },
-    'viniela-management-property': {
-      hero: '/assets/images/managementproperty/heromanagementproperty.webp',
-      about: '/assets/images/managementproperty/aboutmanagementproperty.webp',
+    "viniela-pengacara": {
+      hero: "/assets/images/lawyer/herolawyer.webp",
+      about: "/assets/images/lawyer/aboutlawyer.webp",
     },
-    'viniela-property': {
-      hero: '/assets/images/vinielaproperty/herovinielaproperty.webp',
-      about: '/assets/images/vinielaproperty/aboutvinielaproperty.webp',
+    "viniela-management-property": {
+      hero: "/assets/images/managementproperty/heromanagementproperty.webp",
+      about: "/assets/images/managementproperty/aboutmanagementproperty.webp",
+    },
+    "viniela-property": {
+      hero: "/assets/images/vinielaproperty/herovinielaproperty.webp",
+      about: "/assets/images/vinielaproperty/aboutvinielaproperty.webp",
     },
     default: {
-      hero: '/assets/images/halamandesign/herodesign.webp',
-      about: '/assets/images/halamandesign/setciondesign.webp',
+      hero: "/assets/images/halamandesign/herodesign.webp",
+      about: "/assets/images/halamandesign/setciondesign.webp",
     },
   };
 
@@ -187,7 +203,9 @@ const DivisionDetailPage: React.FC = () => {
         ></div>
         <div className="absolute inset-0 bg-gradient-to-t from-viniela-dark via-viniela-dark/80 to-transparent z-0"></div>
         <div className="relative z-10 container mx-auto px-6 text-center animate-fade-in-up">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">{divisionName}</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+            {divisionName}
+          </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto mt-4 text-gray-300">
             {divisionDescription}
           </p>
@@ -201,16 +219,16 @@ const DivisionDetailPage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-block px-8 py-3 bg-viniela-gold text-white font-semibold rounded-lg shadow-md hover:bg-viniela-gold-dark transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
-                style={{ animationDelay: '0.2s' }}
+                style={{ animationDelay: "0.2s" }}
               >
-                {heroButtonText}{' '}
+                {heroButtonText}{" "}
                 <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-sm"></i>
               </a>
             ) : (
               <Link
                 to={finalHeroButtonUrl}
                 className="mt-8 inline-block px-8 py-3 bg-viniela-gold text-white font-semibold rounded-lg shadow-md hover:bg-viniela-gold-dark transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
-                style={{ animationDelay: '0.2s' }}
+                style={{ animationDelay: "0.2s" }}
               >
                 {heroButtonText}
               </Link>
@@ -245,7 +263,10 @@ const DivisionDetailPage: React.FC = () => {
           <SectionHeader title={t.divisionDetail.ourServices} />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {divisionContent.services.map(
-              (service: { icon: string; title: string; description: string }, index: number) => (
+              (
+                service: { icon: string; title: string; description: string },
+                index: number,
+              ) => (
                 <div
                   key={index}
                   className="bg-white p-8 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition-transform duration-300"
@@ -253,8 +274,12 @@ const DivisionDetailPage: React.FC = () => {
                   <div className="inline-flex items-center justify-center bg-viniela-gold/10 text-viniela-gold p-4 rounded-full mb-4">
                     <i className={`${service.icon} fa-2x w-8 h-8`}></i>
                   </div>
-                  <h3 className="text-xl font-bold text-viniela-dark">{service.title}</h3>
-                  <p className="mt-2 text-viniela-gray">{service.description}</p>
+                  <h3 className="text-xl font-bold text-viniela-dark">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-viniela-gray">
+                    {service.description}
+                  </p>
                 </div>
               ),
             )}
@@ -268,15 +293,22 @@ const DivisionDetailPage: React.FC = () => {
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block"></div>
             {divisionContent.processSteps.map(
               (step: { title: string; description: string }, index: number) => (
-                <div key={index} className="relative flex md:items-center mb-12 md:mb-0 group">
+                <div
+                  key={index}
+                  className="relative flex md:items-center mb-12 md:mb-0 group"
+                >
                   <div className="hidden md:flex flex-col items-center justify-center w-1/2 group-odd:order-3">
-                    <div className={`h-40 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}></div>
+                    <div
+                      className={`h-40 ${index % 2 === 0 ? "text-right" : "text-left"}`}
+                    ></div>
                   </div>
                   <div className="absolute md:relative left-0 md:left-auto top-0 transform -translate-x-1/2 md:transform-none bg-viniela-gold text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-md">
                     {index + 1}
                   </div>
                   <div className="ml-12 md:ml-0 md:w-1/2 p-6 bg-viniela-silver rounded-xl shadow-md md:group-odd:ml-auto md:group-even:mr-auto">
-                    <h3 className="text-xl font-bold text-viniela-dark">{step.title}</h3>
+                    <h3 className="text-xl font-bold text-viniela-dark">
+                      {step.title}
+                    </h3>
                     <p className="mt-2 text-viniela-gray">{step.description}</p>
                   </div>
                 </div>
@@ -290,14 +322,21 @@ const DivisionDetailPage: React.FC = () => {
           <SectionHeader title={t.divisionDetail.whyChooseUs} />
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {divisionContent.whyUsPoints.map(
-              (point: { icon: string; title: string; description: string }, index: number) => (
+              (
+                point: { icon: string; title: string; description: string },
+                index: number,
+              ) => (
                 <div key={index} className="flex items-start gap-6">
                   <div className="flex-shrink-0 bg-viniela-gold/10 text-viniela-gold p-4 rounded-full">
                     <i className={`${point.icon} fa-2x w-8 h-8`}></i>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-viniela-dark">{point.title}</h3>
-                    <p className="mt-2 text-viniela-gray">{point.description}</p>
+                    <h3 className="text-xl font-bold text-viniela-dark">
+                      {point.title}
+                    </h3>
+                    <p className="mt-2 text-viniela-gray">
+                      {point.description}
+                    </p>
                   </div>
                 </div>
               ),
@@ -308,8 +347,8 @@ const DivisionDetailPage: React.FC = () => {
         {/* Division CTA */}
         <CTA
           title={t.divisionDetail.ctaTitle}
-          buttonText={t.divisionDetail.ctaButton}
-          imageUrl={`https://picsum.photos/seed/${slug}-cta/800/600`}
+          buttonText={t.divisionContent[slug].ctaButton}
+          imageUrl={heroImage}
           imageAlt={divisionName}
         />
       </main>
