@@ -1,7 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 import React, { useEffect, useRef, useState } from 'react';
-import { divisions } from '../constants';
 import { useTranslations } from '../contexts/i18n';
+import { divisions } from '../data/constants';
 
 interface Message {
   role: 'user' | 'model';

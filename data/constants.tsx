@@ -1,5 +1,5 @@
 import React from 'react';
-import { Division } from './types';
+import { Division } from '../types';
 
 const DesignIcon: React.FC<{ className?: string }> = ({ className }) => (
   <i className={`fa-solid fa-palette ${className}`} aria-hidden="true" />

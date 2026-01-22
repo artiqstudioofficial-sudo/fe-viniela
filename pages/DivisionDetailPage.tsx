@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import CTA from '../components/CTA';
-import { divisions } from '../constants';
 import { useTranslations } from '../contexts/i18n';
+import { divisions } from '../data/constants';
 import useOnScreen from '../hooks/useOnScreen';
 
 // --- CHILD COMPONENTS ---
@@ -120,7 +120,7 @@ const DivisionDetailPage: React.FC = () => {
       hero: '/assets/images/agency/heroagency.webp',
       about: '/assets/images/agency/aboutagency.webp',
     },
-    'viniela-comoditas': {
+    'viniela-komoditas': {
       hero: '/assets/images/comoditas/herocomoditas.webp',
       about: '/assets/images/comoditas/aboutcomoditas.webp',
     },
@@ -140,11 +140,11 @@ const DivisionDetailPage: React.FC = () => {
       hero: '/assets/images/realestate/herorealestate.webp',
       about: '/assets/images/realestate/aboutrealestate.webp',
     },
-    'viniela-medical': {
+    'viniela-medis': {
       hero: '/assets/images/medical/heromedical.webp',
       about: '/assets/images/medical/aboutmedical.webp',
     },
-    'viniela-otomotive': {
+    'viniela-otomotif': {
       hero: '/assets/images/otomotive/otomotivehero.webp',
       about: '/assets/images/otomotive/aboutotomotive.webp',
     },
@@ -152,7 +152,7 @@ const DivisionDetailPage: React.FC = () => {
       hero: '/assets/images/legalitas/herolegalitas.webp',
       about: '/assets/images/legalitas/aboutlegalitas.webp',
     },
-    'viniela-lawyer': {
+    'viniela-pengacara': {
       hero: '/assets/images/lawyer/herolawyer.webp',
       about: '/assets/images/lawyer/aboutlawyer.webp',
     },
