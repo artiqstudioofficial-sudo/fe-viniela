@@ -114,6 +114,7 @@ export const cn = {
       aboutTitle: "空间规划的艺术：室内设计概念",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "开启您的理想空间设计",
       ctaButton: "获取设计咨询",
       aboutContent:
         "在Viniela设计，我们相信每个空间都有潜力讲述一个故事。我们的重点纯粹是概念化阶段，将想法转化为令人惊叹的视觉效果。我们的设计师团队专门创造功能性布局、鼓舞人心的情绪板和逼真的3D渲染，让您在钉下一颗钉子之前就能看到您的愿景。",
@@ -180,6 +181,7 @@ export const cn = {
       aboutTitle: "构筑愿景：室内执行与实现",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "以精细执行落地您的室内方案",
       ctaButton: "预约室内咨询",
       aboutContent:
         "Viniela 室内是设计与工艺相遇的地方。我们将Viniela设计精心打造的概念转化为有形的现实。我们的专长在于室内施工、定制家具制造和精密安装。通过勤奋的项目管理，我们确保每个细节都完美无瑕地执行，按时并在预算内完成。",
@@ -246,6 +248,7 @@ export const cn = {
       aboutTitle: "构筑未来基石：结构建筑服务",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "让专业团队为您打造工程项目",
       ctaButton: "咨询建筑项目",
       aboutContent:
         "Viniela 承包商是VINIELA集团的力量支柱，为大型项目提供全面的总承包服务。从住宅和商业综合体到结构改造，我们以工程精度和坚实的管理处理每一个方面。我们的专长包括准确的预算规划（RAB）、严格的项目监督以及对安全和质量的承诺。",
@@ -312,6 +315,7 @@ export const cn = {
       aboutTitle: "助力业务增长的战略陪伴",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "助力业务增长的战略陪伴",
       ctaButton: "讨论您的业务方向",
       aboutContent:
         "Viniela 商业顾问协助企业主与管理团队做出更清晰、更可持续的经营决策，推动业务稳健成长。",
@@ -373,6 +377,7 @@ export const cn = {
       aboutTitle: "为您的物业提供全面的保养与维修解决方案",
       heroButtonText: "获取服务",
       heroButtonUrl: "https://homeservice.viniela.id/",
+      ctaTitle: "今天就开始维修与养护您的物业",
       ctaButton: "预约家居服务",
       aboutContent:
         "Viniela 家居服务旨在为业主提供安心。我们是您所有维护、修理和保养需求的可靠伙伴，无论是私人住宅还是商业物业。我们的专业技术人员团队随时准备处理各种问题，从小修小补到定期维护，确保您的物业始终处于最佳状态。",
@@ -439,6 +444,7 @@ export const cn = {
       aboutTitle: "造型艺术：装饰与家具解决方案",
       heroButtonText: "获取服务",
       heroButtonUrl: "/contact",
+      ctaTitle: "让您的家焕然一新、更有格调",
       ctaButton: "咨询家居装饰方案",
       aboutContent:
         "Viniela 家居装饰将房屋变成梦想家园。我们专注于策划优质家具，挑选合适的配饰，并创造和谐的房间布局，以营造反映您个性的氛围。从单个房间到整栋房屋，我们的团队随时准备完善每一个细节。",
@@ -505,6 +511,7 @@ export const cn = {
       aboutTitle: "实现所有权：房地产销售专家",
       heroButtonText: "搜索房产",
       heroButtonUrl: "https://property.viniela.id/id",
+      ctaTitle: "为您找到最合适的房产",
       ctaButton: "咨询房产买卖",
       aboutContent:
         "Viniela 房地产是您通往梦想房产的桥梁。我们专注于住宅和商业地产的销售。凭借深厚的市场知识、广泛的网络和谈判专长，我们确保您的买卖过程顺利、透明且有利可图。",
@@ -571,6 +578,7 @@ export const cn = {
       aboutTitle: "优化您的资产：出售与出租的物业管理",
       heroButtonText: "委托房源",
       heroButtonUrl: "https://property.viniela.id/id/list-your-property",
+      ctaTitle: "最大化您的出售与出租收益",
       ctaButton: "咨询物业管理",
       aboutContent:
         "将您的物业管理交给我们。Viniela 物业管理为希望最大化其资产潜力（无论是出售还是出租）的业主提供服务。我们处理营销、租户筛选、维护和行政管理，让您高枕无忧并获得最大回报。",
@@ -637,6 +645,7 @@ export const cn = {
       aboutTitle: "开发与营销高价值物业",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "启动您的地产开发规划",
       ctaButton: "咨询地产开发",
       aboutContent:
         "Viniela 不动产是创新物业项目背后的驱动力。我们专注于整个房地产开发周期，从土地收购、规划和项目管理到营销和销售策略。我们的愿景是创造不仅在财务上有利可图，而且能提高生活质量和社区价值的居住与商业空间。",
@@ -703,6 +712,7 @@ export const cn = {
       aboutTitle: "印尼排名第一的全方位许可与办公解决方案",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "轻松搞定商业许可与合规",
       ctaButton: "咨询许可与办公服务",
       aboutContent:
         "Viniela 法律服务是您在印尼复杂商业法规中的战略伙伴。我们提供一站式商业许可与合规服务，并提供灵活办公空间解决方案，帮助企业快速落地并稳健增长。",
@@ -772,6 +782,7 @@ export const cn = {
         "Viniela 律师团队为您应对民事与商业法律事务，提供专业建议与策略支持，并在庭内外为案件争取最佳结果。",
       heroButtonText: "访问官方网站",
       heroButtonUrl: "https://trustedlawyer.viniela.id/",
+      ctaTitle: "获得更合适的法律保护",
       ctaButton: "预约法律咨询",
       services: [
         {
@@ -836,6 +847,7 @@ export const cn = {
       aboutTitle: "在数字时代塑造有影响力的品牌形象",
       heroButtonText: "探索我们的服务",
       heroButtonUrl: "https://artiqstudio.id/",
+      ctaTitle: "加速您的品牌数字化增长",
       ctaButton: "咨询数字策略",
       aboutContent:
         "Viniela 数字机构帮助企业建立强大的品牌识别与高转化的数字体验。我们结合市场洞察与创意能力，打造既美观又能推动增长的解决方案。",
@@ -902,6 +914,7 @@ export const cn = {
       aboutTitle: "高端医疗服务，直达您家",
       heroButtonText: "获取服务",
       heroButtonUrl: "https://christimedical.viniela.id/",
+      ctaTitle: "在家享受高端医疗服务",
       ctaButton: "预约上门医疗",
       aboutContent:
         "Viniela 医疗将专业医疗服务带到您的家中，强调隐私、舒适与个性化照护，让您无需出门即可获得高品质医疗支持。",
@@ -956,6 +969,7 @@ export const cn = {
       aboutTitle: "综合汽车解决方案：买卖与租赁",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "找到最适合您的车辆解决方案",
       ctaButton: "咨询汽车服务",
       aboutContent:
         "Viniela 汽车为您提供透明可靠的车辆买卖与租赁服务，无论个人或企业需求，都能快速匹配合适方案。",
@@ -1020,6 +1034,7 @@ export const cn = {
       aboutTitle: "连接自然资源与全球市场",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "保障您的商品供应与物流链路",
       ctaButton: "咨询商品与物流",
       aboutContent:
         "Viniela 商品在自然资源供应链中扮演关键角色，连接资源方与全球买家，并提供船舶运输及重型设备等物流支持。",
@@ -1074,6 +1089,7 @@ export const cn = {
       aboutTitle: "卓越的每一项服务",
       heroButtonText: "联系我们",
       heroButtonUrl: "/contact",
+      ctaTitle: "现在就开始与我们沟通咨询",
       ctaButton: "获取免费咨询",
       aboutContent:
         "我们的部门致力于在其领域提供最高质量的服务。我们将行业专业知识与以客户为中心的方法相结合，以实现卓越的成果。我们的专业团队致力于创新、诚信和您的满意。",

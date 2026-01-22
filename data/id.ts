@@ -122,7 +122,6 @@ export const id = {
     ourProcess: "Proses Kami",
     whyChooseUs: "Mengapa Memilih Kami?",
     ctaTitle: "Mari Wujudkan Proyek Anda",
-    // ✅ default CTA (fallback)
     ctaButton: "Dapatkan Konsultasi Gratis",
   },
 
@@ -131,7 +130,7 @@ export const id = {
       aboutTitle: "Merancang Konsep, Menyiapkan Visi Ruang",
       heroButtonText: "Hubungi Kami",
       heroButtonUrl: "/contact",
-      // ✅ spesifik divisi
+      ctaTitle: "Mulai Desain Ruang Impian Anda",
       ctaButton: "Dapatkan Konsultasi Desain",
       aboutContent:
         "Di Viniela Design, kami membantu menerjemahkan ide menjadi konsep desain yang jelas dan terarah. Fokus kami ada di tahap perencanaan dan visualisasi, agar Anda bisa melihat gambaran ruang secara utuh sebelum masuk ke tahap pengerjaan.",
@@ -202,6 +201,7 @@ export const id = {
       aboutTitle: "Membangun Visi: Eksekusi & Realisasi Interior",
       heroButtonText: "Hubungi Kami",
       heroButtonUrl: "/contact",
+      ctaTitle: "Wujudkan Interior Anda dengan Eksekusi Presisi",
       ctaButton: "Jadwalkan Survei & Konsultasi Interior",
       aboutContent:
         "Viniela Interior adalah tempat di mana desain bertemu dengan keahlian. Kami mengambil konsep yang telah dirancang dengan cermat oleh Viniela Design dan mengubahnya menjadi kenyataan yang dapat Anda sentuh. Spesialisasi kami terletak pada konstruksi interior, fabrikasi furnitur kustom, dan instalasi presisi. Dengan manajemen proyek yang teliti, kami memastikan setiap detail dieksekusi dengan sempurna, tepat waktu, dan sesuai anggaran.",
@@ -279,6 +279,7 @@ export const id = {
       aboutTitle: "Membangun Fondasi Masa Depan: Jasa Konstruksi Struktural",
       heroButtonText: "Hubungi Kami",
       heroButtonUrl: "/contact",
+      ctaTitle: "Bangun Proyek Anda dengan Tim Profesional",
       ctaButton: "Minta Estimasi RAB & Konsultasi Proyek",
       aboutContent:
         "Viniela Kontraktor adalah pilar kekuatan dalam VINIELA, menyediakan layanan konstruksi umum yang komprehensif untuk proyek skala besar. Dari pembangunan rumah tinggal dan kompleks komersial hingga renovasi struktural, kami menangani setiap aspek dengan presisi teknik dan manajemen yang solid. Keahlian kami mencakup perencanaan anggaran (RAB) yang akurat, pengawasan proyek yang ketat, dan komitmen terhadap keselamatan dan kualitas.",
@@ -356,6 +357,7 @@ export const id = {
       aboutTitle: "Pendampingan Strategis untuk Bisnis Bertumbuh",
       heroButtonText: "Hubungi Kami",
       heroButtonUrl: "/contact",
+      ctaTitle: "Pendampingan Strategis untuk Bisnis Bertumbuh",
       ctaButton: "Diskusikan Arah Bisnis Anda",
       aboutContent:
         "Viniela Konsultan Bisnis membantu pemilik usaha dan manajemen dalam mengambil keputusan yang lebih terarah dan berkelanjutan.",
@@ -427,6 +429,7 @@ export const id = {
       aboutTitle: "Solusi Lengkap Perawatan & Perbaikan Properti Anda",
       heroButtonText: "Dapatkan Layanan",
       heroButtonUrl: "https://homeservice.viniela.id/",
+      ctaTitle: "Rawat & Perbaiki Properti Anda Hari Ini",
       ctaButton: "Pesan Layanan Home Service",
       aboutContent:
         "Viniela Home & Service hadir untuk memberikan ketenangan pikiran bagi para pemilik properti. Kami adalah mitra andal Anda untuk semua kebutuhan perawatan, perbaikan, dan pemeliharaan, baik untuk hunian pribadi maupun properti komersial. Tim teknisi profesional kami siap menangani berbagai masalah, dari perbaikan kecil hingga perawatan rutin, memastikan properti Anda selalu dalam kondisi prima.",
@@ -504,6 +507,7 @@ export const id = {
       aboutTitle: "Seni Menata Ruang: Solusi Dekorasi & Furnitur",
       heroButtonText: "Dapatkan Layanan",
       heroButtonUrl: "/contact",
+      ctaTitle: "Sempurnakan Tampilan Rumah Anda",
       ctaButton: "Konsultasi Dekorasi & Furnitur",
       aboutContent:
         "Viniela Home & Dekor mengubah rumah menjadi hunian impian. Kami berspesialisasi dalam kurasi furnitur berkualitas, pemilihan aksesoris yang tepat, dan penataan ruang yang harmonis untuk menciptakan suasana yang mencerminkan kepribadian Anda. Dari satu ruangan hingga seluruh rumah, tim kami siap menyempurnakan setiap detail.",
@@ -581,6 +585,7 @@ export const id = {
       aboutTitle: "Mewujudkan Kepemilikan: Spesialis Penjualan Properti",
       heroButtonText: "Cari Properti",
       heroButtonUrl: "https://property.viniela.id/",
+      ctaTitle: "Temukan Properti yang Tepat untuk Anda",
       ctaButton: "Konsultasi Jual/Beli Properti",
       aboutContent:
         "Viniela Property adalah jembatan Anda menuju properti impian. Kami fokus secara eksklusif pada penjualan properti residensial dan komersial. Dengan pengetahuan pasar yang mendalam, jaringan luas, dan keahlian negosiasi, kami memastikan proses jual beli properti Anda berjalan lancar, transparan, dan menguntungkan.",
@@ -659,6 +664,7 @@ export const id = {
         "Optimalkan Aset Anda: Manajemen Properti untuk Dijual & Disewa",
       heroButtonText: "Titipkan Properti Anda",
       heroButtonUrl: "https://property.viniela.id/id/list-your-property",
+      ctaTitle: "Maksimalkan Nilai Jual & Sewa Aset Anda",
       ctaButton: "Titipkan Properti & Konsultasi",
       aboutContent:
         "Serahkan pengelolaan properti Anda kepada kami. Viniela Management Property melayani pemilik properti yang ingin memaksimalkan potensi aset mereka, baik untuk dijual maupun disewakan. Kami menangani pemasaran, penyaringan penyewa, pemeliharaan, dan administrasi, sehingga Anda bisa tenang dan mendapatkan hasil maksimal.",
@@ -736,6 +742,7 @@ export const id = {
       aboutTitle: "Mengembangkan & Memasarkan Properti Bernilai Tinggi",
       heroButtonText: "Hubungi Kami",
       heroButtonUrl: "/contact",
+      ctaTitle: "Mulai Rencana Pengembangan Properti Anda",
       ctaButton: "Diskusikan Proyek Developer Anda",
       aboutContent:
         "Viniela Real Estate adalah kekuatan pendorong di balik proyek-proyek properti inovatif. Kami berspesialisasi dalam seluruh siklus pengembangan real estat, mulai dari akuisisi lahan, perencanaan, manajemen proyek, hingga strategi pemasaran dan penjualan. Visi kami adalah menciptakan ruang hidup dan komersial yang tidak hanya menguntungkan secara finansial tetapi juga meningkatkan kualitas hidup dan komunitas.",
@@ -814,6 +821,7 @@ export const id = {
         "Jasa Perizinan & Solusi Kantor Terlengkap No. 1 di Indonesia",
       heroButtonText: "Dapatkan Layanan",
       heroButtonUrl: "/contact",
+      ctaTitle: "Urus Legalitas Bisnis Anda Tanpa Ribet",
       ctaButton: "Konsultasi Legalitas & Perizinan",
       aboutContent:
         "Viniela Legalitas adalah mitra strategis Anda untuk menavigasi kompleksitas hukum bisnis di Indonesia. Kami menyediakan solusi satu atap untuk semua kebutuhan perizinan usaha, dari pendirian perusahaan hingga pengurusan izin khusus. Selain itu, kami menawarkan solusi ruang kantor yang fleksibel untuk mendukung pertumbuhan bisnis Anda, menjadikannya pilihan utama bagi pengusaha dan korporasi.",
@@ -893,6 +901,7 @@ export const id = {
         "Viniela Pengacara menyediakan layanan hukum ahli untuk menavigasi kompleksitas hukum perdata dan bisnis. Tim pengacara kami yang berpengalaman berdedikasi untuk melindungi kepentingan Anda, memberikan nasihat strategis, dan memperjuangkan hasil terbaik dalam setiap kasus, baik di dalam maupun di luar pengadilan.",
       heroButtonText: "Kunjungi Website Resmi",
       heroButtonUrl: "https://trustedlawyer.viniela.id/",
+      ctaTitle: "Dapatkan Perlindungan Hukum yang Tepat",
       ctaButton: "Jadwalkan Konsultasi Hukum",
       services: [
         {
@@ -968,6 +977,7 @@ export const id = {
       aboutTitle: "Membentuk Identitas Merek yang Berdampak di Era Digital",
       heroButtonText: "Jelajahi Layanan Kami",
       heroButtonUrl: "https://artiqstudio.id/",
+      ctaTitle: "Percepat Pertumbuhan Brand Anda di Era Digital",
       ctaButton: "Konsultasi Branding & Digital",
       aboutContent:
         "Viniela Digital Agency adalah mitra strategis Anda dalam membangun identitas merek yang kuat dan pengalaman digital yang memikat. Kami menggabungkan wawasan pasar dengan keunggulan kreatif untuk menghasilkan solusi yang tidak hanya indah secara visual, tetapi juga mendorong pertumbuhan bisnis.",
@@ -1045,6 +1055,7 @@ export const id = {
       aboutTitle: "Layanan Kesehatan Premium, Langsung di Rumah Anda",
       heroButtonText: "Dapatkan Layanan",
       heroButtonUrl: "https://christimedical.viniela.id/",
+      ctaTitle: "Dapatkan Layanan Medis Premium di Rumah",
       ctaButton: "Jadwalkan Kunjungan Dokter",
       aboutContent:
         "Viniela Medis, didukung oleh dokter representatif SCCR Indonesia, menghadirkan layanan kesehatan eksklusif langsung ke kenyamanan rumah Anda. Kami memahami pentingnya privasi dan kenyamanan, sehingga kesehatan Anda ditangani secara personal dan profesional tanpa perlu meninggalkan rumah.",
@@ -1122,6 +1133,7 @@ export const id = {
       aboutTitle: "Solusi Otomotif Terpadu: Jual, Beli, & Sewa Kendaraan",
       heroButtonText: "Cari Kendaraan",
       heroButtonUrl: "/contact",
+      ctaTitle: "Temukan Solusi Kendaraan yang Paling Pas",
       ctaButton: "Konsultasi Jual/Beli/Sewa Kendaraan",
       aboutContent:
         "Viniela Otomotif adalah mitra terpercaya Anda untuk semua kebutuhan kendaraan. Kami menyediakan platform yang mudah, transparan, dan andal untuk jual-beli mobil baru dan bekas, serta layanan sewa kendaraan yang fleksibel untuk kebutuhan personal maupun bisnis.",
@@ -1211,6 +1223,7 @@ export const id = {
       aboutTitle: "Menjembatani Sumber Daya Alam dengan Pasar Global",
       heroButtonText: "Hubungi Kami",
       heroButtonUrl: "/contact",
+      ctaTitle: "Amankan Kebutuhan Komoditas & Logistik Anda",
       ctaButton: "Diskusikan Kebutuhan Komoditas & Logistik",
       aboutContent:
         "Viniela Komoditas berperan sebagai penghubung vital dalam rantai pasok sumber daya alam. Kami memfasilitasi perdagangan antara pemilik material alam dengan pembeli global, serta menyediakan dukungan logistik krusial, mulai dari penyewaan kapal pengangkut hingga penyediaan suku cadang.",
@@ -1289,6 +1302,7 @@ export const id = {
       aboutTitle: "Keunggulan dalam Setiap Layanan",
       heroButtonText: "Hubungi Kami",
       heroButtonUrl: "/contact",
+      ctaTitle: "Pendampingan Strategis untuk Bisnis Bertumbuh",
       ctaButton: "Dapatkan Konsultasi Gratis",
       aboutContent:
         "Divisi kami berdedikasi untuk memberikan layanan berkualitas tertinggi di bidangnya. Kami menggabungkan keahlian industri dengan pendekatan yang berpusat pada klien untuk memberikan hasil yang luar biasa. Tim profesional kami berkomitmen pada inovasi, integritas, dan kepuasan Anda.",

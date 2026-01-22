@@ -346,7 +346,7 @@ const DivisionDetailPage: React.FC = () => {
 
         {/* Division CTA */}
         <CTA
-          title={t.divisionDetail.ctaTitle}
+          title={t.divisionContent[slug].ctaTitle}
           buttonText={t.divisionContent[slug].ctaButton}
           imageUrl={heroImage}
           imageAlt={divisionName}

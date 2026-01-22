@@ -131,6 +131,7 @@ export const en = {
       aboutTitle: "Designing Concepts, Shaping Spatial Vision",
       heroButtonText: "Contact Us",
       heroButtonUrl: "/contact",
+      ctaTitle: "Start Designing Your Dream Space",
       ctaButton: "Get Design Consultation",
       aboutContent:
         "At Viniela Design, we translate ideas into clear and structured design concepts. Our focus lies in planning and visualization, allowing you to fully understand your space before execution begins.",
@@ -205,6 +206,7 @@ export const en = {
       aboutTitle: "Bringing Vision to Life Through Interior Execution",
       heroButtonText: "Contact Us",
       heroButtonUrl: "/contact",
+      ctaTitle: "Bring Your Interior to Life with Precise Execution",
       ctaButton: "Schedule Interior Consultation",
       aboutContent:
         "Viniela Interior is where design meets craftsmanship. We transform carefully designed concepts into tangible spaces through precise interior construction, custom furniture fabrication, and professional installation.",
@@ -282,6 +284,7 @@ export const en = {
       aboutTitle: "Building Strong Foundations for the Future",
       heroButtonText: "Contact Us",
       heroButtonUrl: "/contact",
+      ctaTitle: "Build Your Project with a Professional Team",
       ctaButton: "Request Project & Budget Consultation",
       aboutContent:
         "Viniela Contractor delivers comprehensive construction services for large-scale projects. From residential developments to commercial buildings, we ensure technical precision, safety, and project efficiency.",
@@ -359,6 +362,7 @@ export const en = {
       aboutTitle: "Strategic Guidance for Sustainable Business Growth",
       heroButtonText: "Contact Us",
       heroButtonUrl: "/contact",
+      ctaTitle: "Strategic Guidance for Sustainable Business Growth",
       ctaButton: "Discuss Your Business Direction",
       aboutContent:
         "Viniela Business Consultant supports business owners and management teams in making more focused, sustainable decisions.",
@@ -430,6 +434,7 @@ export const en = {
       aboutTitle: "Complete Property Maintenance & Repair Solutions",
       heroButtonText: "Get Service",
       heroButtonUrl: "https://homeservice.viniela.id/",
+      ctaTitle: "Maintain & Fix Your Property Today",
       ctaButton: "Book Home Service",
       aboutContent:
         "Viniela Home Service provides peace of mind through reliable property maintenance and repair solutions. Our professional technicians ensure your property remains in excellent condition.",
@@ -507,6 +512,7 @@ export const en = {
       aboutTitle: "The Art of Interior Styling & Furnishing",
       heroButtonText: "Get Service",
       heroButtonUrl: "/contact",
+      ctaTitle: "Elevate the Look of Your Home",
       ctaButton: "Consult Decor & Furniture",
       aboutContent:
         "Viniela Home & Decor transforms houses into personalized living spaces through curated furniture, accessories, and thoughtful interior styling.",
@@ -584,6 +590,7 @@ export const en = {
       aboutTitle: "Turning Property Ownership Into Reality",
       heroButtonText: "Find Property",
       heroButtonUrl: "https://property.viniela.id/",
+      ctaTitle: "Find the Right Property for You",
       ctaButton: "Consult Property Sales",
       aboutContent:
         "Viniela Property bridges buyers and sellers through expert market insight, strong networks, and transparent property transactions.",
@@ -662,6 +669,7 @@ export const en = {
         "Optimize Your Assets Through Professional Property Management",
       heroButtonText: "List Your Property",
       heroButtonUrl: "https://property.viniela.id/id/list-your-property",
+      ctaTitle: "Maximize Your Asset’s Sale & Rental Value",
       ctaButton: "List Property & Consult",
       aboutContent:
         "Viniela Property Management helps owners maximize rental income and asset value by handling marketing, tenant screening, maintenance, and administration.",
@@ -738,6 +746,7 @@ export const en = {
       aboutTitle: "Developing & Marketing High-Value Real Estate",
       heroButtonText: "Contact Us",
       heroButtonUrl: "/contact",
+      ctaTitle: "Kick Off Your Property Development Plan",
       ctaButton: "Discuss Your Development Project",
       aboutContent:
         "Viniela Real Estate manages the full real estate development cycle—from land acquisition and planning to construction oversight and sales strategy.",
@@ -815,6 +824,7 @@ export const en = {
       aboutTitle: "Indonesia’s Leading Business Licensing & Office Solutions",
       heroButtonText: "Get Service",
       heroButtonUrl: "/contact",
+      ctaTitle: "Handle Your Business Legalities with Ease",
       ctaButton: "Consult Legal & Licensing",
       aboutContent:
         "Viniela Legal Services provides end-to-end solutions for business permits, compliance, and flexible office space to support business growth.",
@@ -894,6 +904,7 @@ export const en = {
         "Viniela Law Firm delivers expert legal representation and strategic advice across litigation, corporate law, and intellectual property.",
       heroButtonText: "Visit Official Website",
       heroButtonUrl: "https://trustedlawyer.viniela.id/",
+      ctaTitle: "Get the Right Legal Protection",
       ctaButton: "Schedule Legal Consultation",
       services: [
         {
@@ -969,6 +980,7 @@ export const en = {
       aboutTitle: "Building Impactful Brands in the Digital Era",
       heroButtonText: "Explore Our Services",
       heroButtonUrl: "https://artiqstudio.id/",
+      ctaTitle: "Accelerate Your Brand Growth in Digital",
       ctaButton: "Consult Digital & Branding Strategy",
       aboutContent:
         "Viniela Digital Agency partners with businesses to build strong brand identities and engaging digital experiences that drive growth.",
@@ -1046,6 +1058,7 @@ export const en = {
       aboutTitle: "Premium Healthcare, Delivered to Your Home",
       heroButtonText: "Get Medical Service",
       heroButtonUrl: "https://christimedical.viniela.id/",
+      ctaTitle: "Get Premium Medical Care at Home",
       ctaButton: "Schedule Doctor Visit",
       aboutContent:
         "Viniela Medical delivers exclusive healthcare services directly to your home, ensuring privacy, comfort, and professional medical care.",
@@ -1123,6 +1136,7 @@ export const en = {
       aboutTitle: "Integrated Automotive Sales, Purchase & Rental Solutions",
       heroButtonText: "Find Vehicle",
       heroButtonUrl: "/contact",
+      ctaTitle: "Find the Best Vehicle Solution for You",
       ctaButton: "Consult Automotive Services",
       aboutContent:
         "Viniela Automotive provides transparent and reliable solutions for buying, selling, and renting vehicles for personal and business needs.",
@@ -1211,6 +1225,7 @@ export const en = {
       aboutTitle: "Connecting Natural Resources to Global Markets",
       heroButtonText: "Contact Us",
       heroButtonUrl: "/contact",
+      ctaTitle: "Secure Your Commodity Supply & Logistics",
       ctaButton: "Discuss Commodities & Logistics",
       aboutContent:
         "Viniela Commodities connects resource owners with global buyers while providing integrated logistics support including shipping and heavy equipment.",
