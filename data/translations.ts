@@ -915,7 +915,7 @@ const translations = {
       'viniela-medis': {
         aboutTitle: 'Layanan Kesehatan Premium, Langsung di Rumah Anda',
         heroButtonText: 'Dapatkan Layanan',
-        heroButtonUrl: 'https://christimedicalhomecare.viniela.id/',
+        heroButtonUrl: 'https://christimedical.viniela.id/',
         aboutContent:
           'Viniela Medis, didukung oleh dokter representatif SCCR Indonesia, menghadirkan layanan kesehatan eksklusif langsung ke kenyamanan rumah Anda. Kami memahami pentingnya privasi dan kenyamanan, sehingga kesehatan Anda ditangani secara personal dan profesional tanpa perlu meninggalkan rumah.',
         services: [
@@ -2527,7 +2527,7 @@ const translations = {
       'viniela-medis': {
         aboutTitle: 'Premium Healthcare Services, Directly at Your Home',
         heroButtonText: 'Book a Service',
-        heroButtonUrl: 'https://christimedicalhomecare.viniela.id/',
+        heroButtonUrl: 'https://christimedical.viniela.id/',
         aboutContent:
           'Viniela Medical, supported by representative doctors from SCCR Indonesia, brings exclusive healthcare services directly to the comfort of your home. We understand the importance of privacy and comfort, ensuring your health is handled personally and professionally without you needing to leave home.',
         services: [
@@ -4040,7 +4040,7 @@ const translations = {
       'viniela-medis': {
         aboutTitle: '高端医疗服务，直达您家',
         heroButtonText: '获取服务',
-        heroButtonUrl: 'https://christimedicalhomecare.viniela.id/',
+        heroButtonUrl: 'https://christimedical.viniela.id/',
         aboutContent:
           'Viniela医疗由SCCR Indonesia的代表医生支持，将专属医疗服务直接带到您舒适的家中。我们深知隐私和舒适的重要性，确保您的健康得到个性化和专业的处理，无需离家。',
         services: [

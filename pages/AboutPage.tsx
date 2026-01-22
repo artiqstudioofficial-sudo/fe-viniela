@@ -3,7 +3,6 @@ import CTA from '../components/CTA';
 import { useTranslations } from '../contexts/i18n';
 import useOnScreen from '../hooks/useOnScreen';
 
-// Animated Counter Component
 const AnimatedCounter: React.FC<{ target: number; isYear?: boolean }> = ({
   target,
   isYear = false,
@@ -34,7 +33,7 @@ const AnimatedCounter: React.FC<{ target: number; isYear?: boolean }> = ({
 
   return (
     <span>
-      {count.toLocaleString()}
+      {isYear ? count : count.toLocaleString()}
       {isYear ? '' : '+'}
     </span>
   );
@@ -74,7 +73,7 @@ const AboutPage: React.FC = () => {
   const stats = [
     { label: t.about.stat1Label, value: 15 },
     { label: t.about.stat2Label, value: 50 },
-    { label: t.about.stat3Label, value: 2020, isYear: true },
+    { label: t.about.stat3Label, value: 2017, isYear: true },
   ];
 
   useEffect(() => {
@@ -212,13 +211,7 @@ const AboutPage: React.FC = () => {
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
                 <p className="text-6xl font-bold text-viniela-gold mb-2">
-                  {isStatsVisible ? (
-                    <AnimatedCounter target={stat.value} isYear={stat.isYear} />
-                  ) : stat.isYear ? (
-                    '2020'
-                  ) : (
-                    '0'
-                  )}
+                  <AnimatedCounter target={stat.value} isYear={stat.isYear} />
                 </p>
                 <p className="text-lg font-semibold text-gray-300">{stat.label}</p>
               </div>

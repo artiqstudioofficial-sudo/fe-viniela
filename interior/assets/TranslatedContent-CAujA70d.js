@@ -1,1 +1,0 @@
-import{j as r}from"./index-Dn_3-VR5.js";const o=(t,n)=>({translatedProject:t,isLoading:!1,error:null}),d=({project:t,setProjects:n,children:s})=>{const{translatedProject:e,isLoading:a}=o(t);return r.jsx(r.Fragment,{children:s(e,a)})},i=({className:t="h-6 w-3/4"})=>r.jsx("div",{className:`bg-gray-300 dark:bg-gray-700 rounded animate-pulse ${t}`});export{i as S,d as T};
