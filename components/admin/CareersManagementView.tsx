@@ -1,57 +1,47 @@
-import React, { FormEvent, useEffect, useMemo, useState } from "react";
+import React, { FormEvent, useEffect, useMemo, useState } from 'react';
 
-import { useTranslations } from "../../contexts/i18n";
+import { useTranslations } from '../../contexts/i18n';
 
-import RichTextEditor from "../../components/RichTextEditor";
-import ConfirmationModal from "../../components/ConfirmationModal";
+import RichTextEditor from '../../components/RichTextEditor';
+import ConfirmationModal from '../../components/ConfirmationModal';
 
-import * as careersService from "../../services/careersService";
+import * as careersService from '../../services/careersService';
 
-import { JobApplication, JobListing, JobType } from "../../types";
+import { JobApplication, JobListing, JobType } from '../../types';
 
-type ToastFn = (message: string, type?: "success" | "error") => void;
+type ToastFn = (message: string, type?: 'success' | 'error') => void;
 
 interface CareersManagementViewProps {
   showToast: ToastFn;
 }
 
-const jobTypes: JobType[] = [
-  "Full-time",
-  "Part-time",
-  "Contract",
-  "Internship",
-];
+const jobTypes: JobType[] = ['Full-time', 'Part-time', 'Contract', 'Internship'];
 
 // Hanya pakai bahasa Indonesia (id) saja
-const emptyJobListing: Omit<JobListing, "id" | "date"> = {
-  title: { id: "" },
-  location: { id: "" },
-  type: "Full-time",
-  description: { id: "" },
-  responsibilities: { id: "" },
-  qualifications: { id: "" },
+const emptyJobListing: Omit<JobListing, 'id' | 'date'> = {
+  title: { id: '' },
+  location: { id: '' },
+  type: 'Full-time',
+  description: { id: '' },
+  responsibilities: { id: '' },
+  qualifications: { id: '' },
 };
 
-type SortKey = "date" | "name";
-type SortDirection = "asc" | "desc";
+type SortKey = 'date' | 'name';
+type SortDirection = 'asc' | 'desc';
 
-const CareersManagementView: React.FC<CareersManagementViewProps> = ({
-  showToast,
-}) => {
+const CareersManagementView: React.FC<CareersManagementViewProps> = ({ showToast }) => {
   const { t } = useTranslations();
 
-  const [activeCareersSubTab, setActiveCareersSubTab] = useState<
-    "manage" | "view"
-  >("manage");
+  const [activeCareersSubTab, setActiveCareersSubTab] = useState<'manage' | 'view'>('manage');
 
   const [jobs, setJobs] = useState<JobListing[]>([]);
   const [applications, setApplications] = useState<JobApplication[]>([]);
 
   const [editingJob, setEditingJob] = useState<JobListing | null>(null);
-  const [jobFormData, setJobFormData] =
-    useState<Omit<JobListing, "id" | "date">>(emptyJobListing);
+  const [jobFormData, setJobFormData] = useState<Omit<JobListing, 'id' | 'date'>>(emptyJobListing);
 
-  const [selectedJobForApps, setSelectedJobForApps] = useState<string>("all");
+  const [selectedJobForApps, setSelectedJobForApps] = useState<string>('all');
 
   const [jobToDelete, setJobToDelete] = useState<string | null>(null);
 
@@ -61,8 +51,8 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
     key: SortKey;
     direction: SortDirection;
   }>({
-    key: "date",
-    direction: "desc",
+    key: 'date',
+    direction: 'desc',
   });
 
   // helper untuk load data dari API
@@ -75,12 +65,10 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
       setJobs(jobsData);
       setApplications(appsData);
     } catch (error) {
-      console.error("Gagal memuat data karir:", error);
+      console.error('Gagal memuat data karir:', error);
       showToast(
-        error instanceof Error
-          ? error.message
-          : "Gagal memuat data karir dari server",
-        "error"
+        error instanceof Error ? error.message : 'Gagal memuat data karir dari server',
+        'error',
       );
     }
   };
@@ -116,12 +104,10 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
       setJobs(jobsData);
       resetJobForm();
     } catch (error) {
-      console.error("Gagal menyimpan job:", error);
+      console.error('Gagal menyimpan job:', error);
       showToast(
-        error instanceof Error
-          ? error.message
-          : "Gagal menyimpan data lowongan ke server",
-        "error"
+        error instanceof Error ? error.message : 'Gagal menyimpan data lowongan ke server',
+        'error',
       );
     } finally {
       setIsSaving(false);
@@ -149,14 +135,12 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
       const jobsData = await careersService.getJobListings();
       setJobs(jobsData);
       if (editingJob?.id === jobToDelete) resetJobForm();
-      showToast(t.admin.toast.jobDeleted ?? "Job deleted");
+      showToast(t.admin.toast.jobDeleted ?? 'Job deleted');
     } catch (error) {
-      console.error("Gagal menghapus job:", error);
+      console.error('Gagal menghapus job:', error);
       showToast(
-        error instanceof Error
-          ? error.message
-          : "Gagal menghapus data lowongan di server",
-        "error"
+        error instanceof Error ? error.message : 'Gagal menghapus data lowongan di server',
+        'error',
       );
     } finally {
       setJobToDelete(null);
@@ -165,22 +149,22 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
 
   const sortedApplications = useMemo(() => {
     const filtered = applications.filter(
-      (app) => selectedJobForApps === "all" || app.jobId === selectedJobForApps
+      (app) => selectedJobForApps === 'all' || app.jobId === selectedJobForApps,
     );
     return [...filtered].sort((a, b) => {
-      if (appSortConfig.key === "name") {
-        return appSortConfig.direction === "asc"
+      if (appSortConfig.key === 'name') {
+        return appSortConfig.direction === 'asc'
           ? a.name.localeCompare(b.name)
           : b.name.localeCompare(a.name);
       }
       const dateA = new Date(a.date).getTime();
       const dateB = new Date(b.date).getTime();
-      return appSortConfig.direction === "asc" ? dateA - dateB : dateB - dateA;
+      return appSortConfig.direction === 'asc' ? dateA - dateB : dateB - dateA;
     });
   }, [applications, selectedJobForApps, appSortConfig]);
 
   const handleSortChange = (value: string) => {
-    const [key, direction] = value.split("-") as [SortKey, SortDirection];
+    const [key, direction] = value.split('-') as [SortKey, SortDirection];
     setAppSortConfig({ key, direction });
   };
 
@@ -197,24 +181,20 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
       <div className="animate-fade-in-up">
         <div className="flex justify-center border-b border-gray-300 mb-8">
           <button
-            onClick={() => setActiveCareersSubTab("manage")}
-            className={`sub-tab-button ${
-              activeCareersSubTab === "manage" ? "sub-tab-active" : ""
-            }`}
+            onClick={() => setActiveCareersSubTab('manage')}
+            className={`sub-tab-button ${activeCareersSubTab === 'manage' ? 'sub-tab-active' : ''}`}
           >
             {t.admin.manageJobs}
           </button>
           <button
-            onClick={() => setActiveCareersSubTab("view")}
-            className={`sub-tab-button ${
-              activeCareersSubTab === "view" ? "sub-tab-active" : ""
-            }`}
+            onClick={() => setActiveCareersSubTab('view')}
+            className={`sub-tab-button ${activeCareersSubTab === 'view' ? 'sub-tab-active' : ''}`}
           >
             {t.admin.viewApplications}
           </button>
         </div>
 
-        {activeCareersSubTab === "manage" ? (
+        {activeCareersSubTab === 'manage' ? (
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Form Jobs */}
             <div className="lg:col-span-3 bg-white p-8 rounded-xl shadow-lg">
@@ -298,9 +278,7 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
 
                 {/* Responsibilities (ID saja) */}
                 <section>
-                  <h3 className="form-section-title">
-                    {t.admin.responsibilities}
-                  </h3>
+                  <h3 className="form-section-title">{t.admin.responsibilities}</h3>
                   <RichTextEditor
                     placeholder={t.admin.responsibilitiesIdPlaceholder}
                     value={jobFormData.responsibilities.id}
@@ -317,9 +295,7 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
 
                 {/* Qualifications (ID saja) */}
                 <section>
-                  <h3 className="form-section-title">
-                    {t.admin.qualifications}
-                  </h3>
+                  <h3 className="form-section-title">{t.admin.qualifications}</h3>
                   <RichTextEditor
                     placeholder={t.admin.qualificationsIdPlaceholder}
                     value={jobFormData.qualifications.id}
@@ -336,27 +312,17 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
 
                 <div className="flex justify-end items-center space-x-3">
                   {editingJob && (
-                    <button
-                      type="button"
-                      onClick={resetJobForm}
-                      className="btn-secondary"
-                    >
+                    <button type="button" onClick={resetJobForm} className="btn-secondary">
                       {t.admin.cancelButton}
                     </button>
                   )}
-                  <button
-                    type="submit"
-                    className="btn-primary"
-                    disabled={isSaving}
-                  >
-                    {isSaving && (
-                      <i className="fa-solid fa-spinner fa-spin w-5 h-5 mr-2" />
-                    )}
+                  <button type="submit" className="btn-primary" disabled={isSaving}>
+                    {isSaving && <i className="fa-solid fa-spinner fa-spin w-5 h-5 mr-2" />}
                     {isSaving
                       ? t.admin.savingButton
                       : editingJob
-                      ? t.admin.updateJob
-                      : t.admin.createJob}
+                        ? t.admin.updateJob
+                        : t.admin.createJob}
                   </button>
                 </div>
               </form>
@@ -371,13 +337,8 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
                 <div className="space-y-4 max-h-[65vh] overflow-y-auto pr-2">
                   {jobs.length > 0 ? (
                     jobs.map((job) => (
-                      <div
-                        key={job.id}
-                        className="bg-viniela-silver/50 p-4 rounded-lg"
-                      >
-                        <h3 className="font-semibold text-viniela-dark">
-                          {job.title.id}
-                        </h3>
+                      <div key={job.id} className="bg-viniela-silver/50 p-4 rounded-lg">
+                        <h3 className="font-semibold text-viniela-dark">{job.title.id}</h3>
                         <p className="text-sm text-viniela-gray mt-1">
                           {t.admin.jobTypes[job.type]} &bull; {job.location.id}
                         </p>
@@ -398,9 +359,7 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
                       </div>
                     ))
                   ) : (
-                    <p className="text-viniela-gray text-center py-8">
-                      {t.admin.noJobs}
-                    </p>
+                    <p className="text-viniela-gray text-center py-8">{t.admin.noJobs}</p>
                   )}
                 </div>
               </div>
@@ -465,22 +424,14 @@ const CareersManagementView: React.FC<CareersManagementViewProps> = ({
                     {sortedApplications.map((app) => (
                       <tr key={app.id} className="hover:bg-gray-50">
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm font-medium text-gray-900">
-                            {app.name}
-                          </div>
+                          <div className="text-sm font-medium text-gray-900">{app.name}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-500">
-                            {app.jobTitle}
-                          </div>
+                          <div className="text-sm text-gray-500">{app.jobTitle}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-500">
-                            {app.email}
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            {app.phone}
-                          </div>
+                          <div className="text-sm text-gray-500">{app.email}</div>
+                          <div className="text-sm text-gray-500">{app.phone}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                           {new Date(app.date).toLocaleDateString()}
